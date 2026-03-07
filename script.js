@@ -217,3 +217,31 @@ form.addEventListener('submit', (e) => {
     }, 460);
   });
 })();
+
+// ===== Glitch k : mirror aléatoire =====
+(function () {
+  var k = document.querySelector('.glitch-k');
+  if (!k) return;
+
+  function triggerMirror() {
+    k.classList.add('mirrored');
+    // Durée du mirror : 60-160ms (très court, "flash")
+    setTimeout(function () {
+      k.classList.remove('mirrored');
+    }, 60 + Math.random() * 100);
+
+    // Parfois un double-flash rapide
+    if (Math.random() < 0.35) {
+      setTimeout(function () {
+        k.classList.add('mirrored');
+        setTimeout(function () { k.classList.remove('mirrored'); }, 50 + Math.random() * 60);
+      }, 180 + Math.random() * 80);
+    }
+
+    // Prochain mirror dans 2-9 secondes
+    setTimeout(triggerMirror, 2000 + Math.random() * 7000);
+  }
+
+  // Premier déclenchement après 1-4s
+  setTimeout(triggerMirror, 1000 + Math.random() * 3000);
+})();

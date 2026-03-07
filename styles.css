@@ -195,6 +195,29 @@ html, body {
   text-shadow: 0 2px 20px rgba(0,0,0,0.5);
 }
 
+/* ===== Glitch sur le 2ème k ===== */
+.glitch-k {
+  display: inline-block;
+  animation: glitch-k-idle 4s steps(1) infinite;
+}
+
+.glitch-k.mirrored {
+  animation: none;
+  transform: scaleX(-1) translateX(3px);
+  text-shadow: 3px 0 #ff0044, -3px 0 #00e5ff, 0 2px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes glitch-k-idle {
+  0%, 85%  { transform: translateX(0);    text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+  86%      { transform: translateX(-3px); text-shadow:  3px 0 #ff0044, -2px 0 #00e5ff; }
+  87%      { transform: translateX(3px);  text-shadow: -3px 0 #ff0044,  2px 0 #00e5ff; }
+  88%      { transform: translateX(-2px); text-shadow:  2px 0 #00e5ff; }
+  89%      { transform: translateX(2px);  text-shadow: -2px 0 #ff0044; }
+  90%      { transform: translateX(-1px); text-shadow:  1px 0 #ff0044, -1px 0 #00e5ff; }
+  91%      { transform: translateX(0);    text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+  100%     { transform: translateX(0);    text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+}
+
 .slide-content.left {
   text-align: left;
   max-width: 520px;
