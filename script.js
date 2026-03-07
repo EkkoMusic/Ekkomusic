@@ -245,18 +245,18 @@ if (form) {
   var slides  = Array.from(track.querySelectorAll('.cat-slide'));
   var current = 0;
 
-  // Paramètres 3D selon la distance au centre
+  // Paramètres 3D verticaux selon la distance au centre
   var PARAMS = [
-    { txRatio: 0,    ry:  0,  scale: 1,    opacity: 1,    z: 10 },  // centre
-    { txRatio: 0.55, ry: 52,  scale: 0.78, opacity: 0.68, z:  5 },  // ±1
-    { txRatio: 0.85, ry: 68,  scale: 0.55, opacity: 0.35, z:  2 },  // ±2
+    { tyRatio: 0,    rx:  0,  scale: 1,    opacity: 1,    z: 10 },  // centre
+    { tyRatio: 0.62, rx: 48,  scale: 0.78, opacity: 0.68, z:  5 },  // ±1
+    { tyRatio: 0.98, rx: 66,  scale: 0.55, opacity: 0.35, z:  2 },  // ±2
   ];
 
   function updateCarousel(animate) {
-    var sw = slides[0].offsetWidth;
+    var sh = slides[0].offsetHeight;
 
     slides.forEach(function (s, i) {
-      var dist = i - current;
+      var dist    = i - current;
       var absDist = Math.abs(dist);
       var sign    = dist >= 0 ? 1 : -1;
       var active  = dist === 0;
@@ -266,17 +266,17 @@ if (form) {
 
       if (!animate) s.style.transition = 'none';
 
+      var ty = sign * p.tyRatio * sh;
+      var rx = -sign * p.rx; // carte du bas incline vers le bas, carte du haut vers le haut
+
       if (absDist >= PARAMS.length) {
-        // Masquer les cartes trop loin
-        s.style.opacity  = '0';
-        s.style.zIndex   = '0';
-        s.style.transform = 'translate(calc(-50% + ' + (sign * p.txRatio * sw) + 'px), -50%) rotateY(' + (-sign * p.ry) + 'deg) scale(' + p.scale + ')';
+        s.style.opacity   = '0';
+        s.style.zIndex    = '0';
       } else {
-        var tx = sign * p.txRatio * sw;
-        s.style.transform = 'translate(calc(-50% + ' + tx + 'px), -50%) rotateY(' + (-sign * p.ry) + 'deg) scale(' + p.scale + ')';
         s.style.opacity   = String(p.opacity);
         s.style.zIndex    = String(p.z);
       }
+      s.style.transform = 'translate(-50%, calc(-50% + ' + ty + 'px)) rotateX(' + rx + 'deg) scale(' + p.scale + ')';
 
       if (!animate) {
         s.offsetHeight; // force reflow
