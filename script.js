@@ -1,5 +1,9 @@
 // ===== YouTube Player =====
 let player;
+function hidePoster() {
+  const poster = document.getElementById('video-poster');
+  if (poster) { poster.style.opacity = '0'; setTimeout(() => poster.remove(), 600); }
+}
 window.onYouTubeIframeAPIReady = function () {
   player = new YT.Player('yt-player', {
     videoId: 'e4VzGciFDxo',
@@ -18,11 +22,12 @@ window.onYouTubeIframeAPIReady = function () {
       onReady: (e) => {
         e.target.mute();
         e.target.playVideo();
+        // Fallback : cache le poster après 5s si la vidéo ne se lance pas
+        setTimeout(hidePoster, 5000);
       },
       onStateChange: (e) => {
-        if (e.data === YT.PlayerState.PLAYING) {
-          const poster = document.getElementById('video-poster');
-          if (poster) { poster.style.opacity = '0'; setTimeout(() => poster.remove(), 600); }
+        if (e.data === YT.PlayerState.PLAYING || e.data === YT.PlayerState.BUFFERING) {
+          hidePoster();
         }
       },
     },
