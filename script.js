@@ -239,7 +239,8 @@ if (form) {
   var nextBtn = document.getElementById('cat-next');
   var fmtEl   = document.getElementById('cat-info-format');
   var titleEl = document.getElementById('cat-info-title');
-  var credEl  = document.getElementById('cat-info-credits');
+  var prodEl  = document.getElementById('cat-info-producteur');
+  var realEl  = document.getElementById('cat-info-realisation');
   if (!track || !stage) return;
 
   var slides  = Array.from(track.querySelectorAll('.cat-slide'));
@@ -287,7 +288,8 @@ if (form) {
     var d = slides[current].dataset;
     fmtEl.textContent   = d.format;
     titleEl.textContent = d.title;
-    credEl.textContent  = d.credits;
+    prodEl.textContent  = d.producteur;
+    realEl.textContent  = d.realisation;
 
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === slides.length - 1;

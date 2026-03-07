@@ -663,10 +663,33 @@ h2.dark {
   text-overflow: ellipsis;
 }
 
-.cat-info-credits {
+.cat-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.cat-info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
   font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.48);
-  letter-spacing: 0.02em;
+}
+
+.cat-info-label {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.38);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  flex-shrink: 0;
+  min-width: 68px;
+}
+
+.cat-info-value {
+  color: rgba(0, 0, 0, 0.62);
+  letter-spacing: 0.01em;
 }
 
 /* Placeholder "Bientôt" */
