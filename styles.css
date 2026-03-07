@@ -311,9 +311,9 @@ h2.dark {
 
 .yt-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
-  width: clamp(320px, 48vw, 740px);
+  width: clamp(400px, 50vw, 760px);
 }
 
 .yt-embed {
