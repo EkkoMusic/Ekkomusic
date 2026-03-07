@@ -162,15 +162,34 @@ form.addEventListener('submit', (e) => {
 // ===== Catalogue Toggle =====
 (function () {
   const slide = document.getElementById('slide-musique');
-  const btn = document.getElementById('catalogue-toggle');
+  const btn   = document.getElementById('catalogue-toggle');
   if (!slide || !btn) return;
 
   let isCatalogue = false;
+  let animating   = false;
 
   btn.addEventListener('click', function (e) {
     e.preventDefault();
-    isCatalogue = !isCatalogue;
-    slide.classList.toggle('catalogue-mode', isCatalogue);
-    btn.textContent = isCatalogue ? 'Mes dernières créations' : 'Catalogue';
+    if (animating) return;
+    animating = true;
+
+    // Glitch sur le titre actuellement visible
+    const activeBlock = slide.querySelector(
+      isCatalogue ? '.slide-text-cat' : '.slide-text-main'
+    );
+    activeBlock.classList.add('glitching');
+
+    // Au pic du glitch → bascule les classes (vidéos + texte)
+    setTimeout(function () {
+      isCatalogue = !isCatalogue;
+      slide.classList.toggle('catalogue-mode', isCatalogue);
+      btn.textContent = isCatalogue ? 'Mes dernières créations' : 'Catalogue';
+    }, 200);
+
+    // Fin du glitch → nettoyage
+    setTimeout(function () {
+      activeBlock.classList.remove('glitching');
+      animating = false;
+    }, 460);
   });
 })();

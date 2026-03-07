@@ -309,7 +309,7 @@ h2.dark {
   z-index: 5;
   width: clamp(300px, 36vw, 560px);
   height: clamp(320px, 44vh, 500px);
-  overflow: hidden;
+  /* Pas de overflow:hidden → les grilles voyagent sur tout le viewport */
 }
 
 /* Grilles : partagent la même base */
@@ -321,7 +321,7 @@ h2.dark {
   height: 100%;
   display: grid;
   gap: 12px;
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 /* Grille principale : 2 grandes vidéos empilées */
@@ -331,19 +331,82 @@ h2.dark {
   transform: translateX(0);
 }
 
-/* Grille catalogue : 2x2 petites vidéos */
+/* Grille catalogue : démarre hors écran à gauche */
 .yt-grid-cat {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  transform: translateX(-110%);
+  transform: translateX(-120vw);
 }
 
 /* État catalogue actif */
 #slide-musique.catalogue-mode .yt-grid-main {
-  transform: translateX(110%);
+  transform: translateX(120vw);
 }
 #slide-musique.catalogue-mode .yt-grid-cat {
   transform: translateX(0);
+}
+
+/* ===== Glitch sur le titre ===== */
+.slide-text-block h2 {
+  position: relative;
+}
+
+.slide-text-block h2::before,
+.slide-text-block h2::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.slide-text-block.glitching h2 {
+  animation: glitch-main 0.42s steps(1) forwards;
+}
+
+.slide-text-block.glitching h2::before {
+  opacity: 1;
+  color: #ff0044;
+  animation: glitch-layer-a 0.42s steps(1) forwards;
+}
+
+.slide-text-block.glitching h2::after {
+  opacity: 1;
+  color: #00e5ff;
+  animation: glitch-layer-b 0.42s steps(1) forwards;
+}
+
+@keyframes glitch-main {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(-3px); }
+  30%  { transform: translateX(3px); }
+  45%  { transform: translateX(-2px); }
+  60%  { transform: translateX(4px); }
+  75%  { transform: translateX(-1px); }
+  90%  { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes glitch-layer-a {
+  0%   { clip-path: inset(15% 0 70% 0); transform: translate(-4px, 0); }
+  20%  { clip-path: inset(65% 0 5% 0);  transform: translate(4px, 1px); }
+  40%  { clip-path: inset(40% 0 40% 0); transform: translate(-3px, -1px); }
+  60%  { clip-path: inset(80% 0 2% 0);  transform: translate(3px, 0); }
+  80%  { clip-path: inset(5% 0 88% 0);  transform: translate(-4px, 2px); }
+  100% { clip-path: inset(50% 0 30% 0); transform: translate(0); opacity: 0; }
+}
+
+@keyframes glitch-layer-b {
+  0%   { clip-path: inset(60% 0 20% 0); transform: translate(4px, 0); }
+  20%  { clip-path: inset(10% 0 75% 0); transform: translate(-4px, -1px); }
+  40%  { clip-path: inset(85% 0 3% 0);  transform: translate(3px, 1px); }
+  60%  { clip-path: inset(30% 0 55% 0); transform: translate(-3px, 0); }
+  80%  { clip-path: inset(0% 0 92% 0);  transform: translate(4px, -2px); }
+  100% { clip-path: inset(70% 0 15% 0); transform: translate(0); opacity: 0; }
 }
 
 .yt-embed {
