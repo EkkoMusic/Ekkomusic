@@ -326,4 +326,14 @@ const MESSAGES = [
   }
 
   scheduleNext();
+
+  // Show chat only on slide 0
+  const slide0 = document.querySelector('.slide[data-theme="dark"]');
+  const chat = document.getElementById('twitch-chat');
+  if (slide0 && chat) {
+    const observer = new MutationObserver(function () {
+      chat.style.display = slide0.classList.contains('active') ? 'flex' : 'none';
+    });
+    observer.observe(slide0, { attributes: true, attributeFilter: ['class'] });
+  }
 })();
