@@ -195,37 +195,57 @@ if (form) {
   });
 })();
 
-// ===== Catalogue Carousel =====
+// ===== Catalogue Carousel 3D =====
 (function () {
-  var track    = document.getElementById('cat-track');
-  var stage    = document.getElementById('cat-stage');
-  var prevBtn  = document.getElementById('cat-prev');
-  var nextBtn  = document.getElementById('cat-next');
-  var fmtEl    = document.getElementById('cat-info-format');
-  var titleEl  = document.getElementById('cat-info-title');
-  var credEl   = document.getElementById('cat-info-credits');
+  var track   = document.getElementById('cat-track');
+  var stage   = document.getElementById('cat-stage');
+  var prevBtn = document.getElementById('cat-prev');
+  var nextBtn = document.getElementById('cat-next');
+  var fmtEl   = document.getElementById('cat-info-format');
+  var titleEl = document.getElementById('cat-info-title');
+  var credEl  = document.getElementById('cat-info-credits');
   if (!track || !stage) return;
 
   var slides  = Array.from(track.querySelectorAll('.cat-slide'));
   var current = 0;
-  var GAP     = 14; // doit correspondre au gap CSS du cat-track
+
+  // Paramètres 3D selon la distance au centre
+  var PARAMS = [
+    { txRatio: 0,    ry:  0,  scale: 1,    opacity: 1,    z: 10 },  // centre
+    { txRatio: 0.62, ry: 52,  scale: 0.78, opacity: 0.68, z:  5 },  // ±1
+    { txRatio: 0.95, ry: 68,  scale: 0.55, opacity: 0.35, z:  2 },  // ±2
+  ];
 
   function updateCarousel(animate) {
-    var stageW = stage.offsetWidth;
-    var sw     = slides[0].offsetWidth;
-    var tx     = (stageW - sw) / 2 - current * (sw + GAP);
-
-    if (!animate) {
-      track.style.transition = 'none';
-      track.style.transform  = 'translateX(' + tx + 'px)';
-      track.offsetHeight; // force reflow
-      track.style.transition = '';
-    } else {
-      track.style.transform = 'translateX(' + tx + 'px)';
-    }
+    var sw = slides[0].offsetWidth;
 
     slides.forEach(function (s, i) {
-      s.classList.toggle('active', i === current);
+      var dist = i - current;
+      var absDist = Math.abs(dist);
+      var sign    = dist >= 0 ? 1 : -1;
+      var active  = dist === 0;
+      var p       = PARAMS[Math.min(absDist, PARAMS.length - 1)];
+
+      s.classList.toggle('active', active);
+
+      if (!animate) s.style.transition = 'none';
+
+      if (absDist >= PARAMS.length) {
+        // Masquer les cartes trop loin
+        s.style.opacity  = '0';
+        s.style.zIndex   = '0';
+        s.style.transform = 'translate(calc(-50% + ' + (sign * p.txRatio * sw) + 'px), -50%) rotateY(' + (-sign * p.ry) + 'deg) scale(' + p.scale + ')';
+      } else {
+        var tx = sign * p.txRatio * sw;
+        s.style.transform = 'translate(calc(-50% + ' + tx + 'px), -50%) rotateY(' + (-sign * p.ry) + 'deg) scale(' + p.scale + ')';
+        s.style.opacity   = String(p.opacity);
+        s.style.zIndex    = String(p.z);
+      }
+
+      if (!animate) {
+        s.offsetHeight; // force reflow
+        s.style.transition = '';
+      }
     });
 
     var d = slides[current].dataset;
@@ -245,7 +265,6 @@ if (form) {
     if (current < slides.length - 1) { current++; updateCarousel(true); }
   });
 
-  // Clic sur une slide non active → la centrer
   slides.forEach(function (slide, i) {
     slide.addEventListener('click', function (e) {
       if (i !== current) {
@@ -256,7 +275,7 @@ if (form) {
     });
   });
 
-  // Recalcul quand le mode catalogue s'active (slide-visual change de taille)
+  // Recalcul quand le mode catalogue s'active
   var muSlide = document.getElementById('slide-musique');
   if (muSlide) {
     new MutationObserver(function () {

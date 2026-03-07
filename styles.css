@@ -405,39 +405,43 @@ h2.dark {
   border: none;
 }
 
-/* ===== Catalogue Carousel ===== */
+/* ===== Catalogue Carousel 3D ===== */
 .cat-carousel {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  flex: 1;
+  min-height: 0;
   width: 100%;
+  position: relative;
 }
 
 .cat-stage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 650px;
   overflow: hidden;
-  flex: 1;
 }
 
 .cat-track {
-  display: flex;
-  gap: 14px;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .cat-slide {
-  flex: 0 0 62%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68%;
+  aspect-ratio: 16 / 9;
   cursor: pointer;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  opacity: 0.42;
-  transform: scale(0.92);
   border-radius: 10px;
   overflow: hidden;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity  0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
 }
 
 .cat-slide.active {
-  opacity: 1;
-  transform: scale(1);
   cursor: default;
 }
 
@@ -503,24 +507,29 @@ h2.dark {
 }
 
 .cat-arrow {
-  flex-shrink: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
   width: 36px;
   height: 36px;
   border-radius: 50%;
   border: 1.5px solid rgba(0, 0, 0, 0.18);
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.82);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  transition: background 0.2s, border-color 0.2s;
   color: #222;
 }
+
+.cat-prev { left: 8px; }
+.cat-next { right: 8px; }
 
 .cat-arrow:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(0, 0, 0, 0.38);
-  transform: scale(1.06);
 }
 
 .cat-arrow:disabled {
