@@ -195,6 +195,80 @@ if (form) {
   });
 })();
 
+// ===== Catalogue Carousel =====
+(function () {
+  var track    = document.getElementById('cat-track');
+  var stage    = document.getElementById('cat-stage');
+  var prevBtn  = document.getElementById('cat-prev');
+  var nextBtn  = document.getElementById('cat-next');
+  var fmtEl    = document.getElementById('cat-info-format');
+  var titleEl  = document.getElementById('cat-info-title');
+  var credEl   = document.getElementById('cat-info-credits');
+  if (!track || !stage) return;
+
+  var slides  = Array.from(track.querySelectorAll('.cat-slide'));
+  var current = 0;
+  var GAP     = 14; // doit correspondre au gap CSS du cat-track
+
+  function updateCarousel(animate) {
+    var stageW = stage.offsetWidth;
+    var sw     = slides[0].offsetWidth;
+    var tx     = (stageW - sw) / 2 - current * (sw + GAP);
+
+    if (!animate) {
+      track.style.transition = 'none';
+      track.style.transform  = 'translateX(' + tx + 'px)';
+      track.offsetHeight; // force reflow
+      track.style.transition = '';
+    } else {
+      track.style.transform = 'translateX(' + tx + 'px)';
+    }
+
+    slides.forEach(function (s, i) {
+      s.classList.toggle('active', i === current);
+    });
+
+    var d = slides[current].dataset;
+    fmtEl.textContent   = d.format;
+    titleEl.textContent = d.title;
+    credEl.textContent  = d.credits;
+
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === slides.length - 1;
+  }
+
+  prevBtn.addEventListener('click', function () {
+    if (current > 0) { current--; updateCarousel(true); }
+  });
+
+  nextBtn.addEventListener('click', function () {
+    if (current < slides.length - 1) { current++; updateCarousel(true); }
+  });
+
+  // Clic sur une slide non active → la centrer
+  slides.forEach(function (slide, i) {
+    slide.addEventListener('click', function (e) {
+      if (i !== current) {
+        e.preventDefault();
+        current = i;
+        updateCarousel(true);
+      }
+    });
+  });
+
+  // Recalcul quand le mode catalogue s'active (slide-visual change de taille)
+  var muSlide = document.getElementById('slide-musique');
+  if (muSlide) {
+    new MutationObserver(function () {
+      requestAnimationFrame(function () { updateCarousel(false); });
+    }).observe(muSlide, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  window.addEventListener('resize', function () { updateCarousel(false); });
+
+  updateCarousel(false);
+})();
+
 // ===== Glitch k : mirror aléatoire =====
 (function () {
   var k = document.querySelector('.glitch-k');
