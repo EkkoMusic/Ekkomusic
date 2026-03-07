@@ -313,7 +313,7 @@ h2.dark {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  width: clamp(400px, 50vw, 760px);
+  width: clamp(300px, 36vw, 560px);
 }
 
 .yt-embed {
