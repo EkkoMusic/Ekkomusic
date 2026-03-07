@@ -63,8 +63,8 @@ function goTo(index) {
   dots[current].classList.add('active');
   dots.forEach(d => d.classList.toggle('theme-dark', current === 1));
 
-  // Logo invert
-  document.getElementById('logo').classList.toggle('no-invert', current === 1);
+  // Logo invert : fond clair (slide 1) → logo noir, fond sombre → logo blanc
+  document.getElementById('logo').classList.toggle('invert', current === 1);
 
   // Arrow visibility
   arrowUp.classList.toggle('hidden', current === 0);
