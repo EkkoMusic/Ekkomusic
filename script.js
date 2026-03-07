@@ -1,7 +1,5 @@
 // ===== YouTube Player =====
 let player;
-let isMuted = false;
-
 window.onYouTubeIframeAPIReady = function () {
   player = new YT.Player('yt-player', {
     videoId: 'e4VzGciFDxo',
@@ -20,35 +18,10 @@ window.onYouTubeIframeAPIReady = function () {
       onReady: (e) => {
         e.target.mute();
         e.target.playVideo();
-        isMuted = true;
-        updateMuteIcon();
       },
     },
   });
 };
-
-// Mute toggle
-const muteBtn = document.getElementById('mute-btn');
-const iconUnmuted = document.getElementById('icon-unmuted');
-const iconMuted = document.getElementById('icon-muted');
-
-function updateMuteIcon() {
-  iconUnmuted.style.display = isMuted ? 'none' : 'block';
-  iconMuted.style.display = isMuted ? 'block' : 'none';
-}
-
-muteBtn.addEventListener('click', () => {
-  if (!player) return;
-  if (isMuted) {
-    player.unMute();
-    player.setVolume(80);
-    isMuted = false;
-  } else {
-    player.mute();
-    isMuted = true;
-  }
-  updateMuteIcon();
-});
 
 // ===== Slider =====
 const slides = Array.from(document.querySelectorAll('.slide'));

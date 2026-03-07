@@ -944,26 +944,6 @@ h2.dark {
   color: var(--white);
 }
 
-/* ===== Mute button ===== */
-.slide-mute {
-  position: absolute;
-  bottom: 2.5rem;
-  right: 2.5rem;
-  z-index: 50;
-  color: rgba(255,255,255,0.7);
-  cursor: pointer;
-  padding: 0.6rem;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(6px);
-  transition: color 0.2s, border-color 0.2s;
-  display: flex;
-}
-
-.slide-mute:hover {
-  color: var(--white);
-  border-color: rgba(255,255,255,0.6);
-}
 
 /* ===== Pagination dots ===== */
 #pagination {
