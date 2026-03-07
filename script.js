@@ -57,6 +57,13 @@ function goTo(index) {
   dots[current].classList.add('active');
   dots.forEach(d => d.classList.toggle('theme-dark', current === 1));
 
+  // Logo swap
+  const logoDark  = document.getElementById('logo-dark');
+  const logoLight = document.getElementById('logo-light');
+  const isSlide2  = current === 1;
+  logoDark.style.display  = isSlide2 ? 'none'  : 'block';
+  logoLight.style.display = isSlide2 ? 'block' : 'none';
+
   // Arrow visibility
   arrowUp.classList.toggle('hidden', current === 0);
   arrowDown.classList.toggle('hidden', current === slides.length - 1);
