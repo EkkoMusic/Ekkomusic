@@ -80,6 +80,10 @@ function goTo(index) {
     outgoing.classList.remove('exit-up');
     outgoing.style.transition = '';
     outgoing.style.transform = '';
+    // Réinitialise le scroll de la slide musique sur mobile après la transition
+    if (window.innerWidth <= 768 && outgoing.id === 'slide-musique') {
+      outgoing.scrollTop = 0;
+    }
     isAnimating = false;
   }, 600);
 }
@@ -121,6 +125,8 @@ document.addEventListener('wheel', (e) => {
 // Touch
 let touchStartY = 0;
 document.addEventListener('touchstart', (e) => {
+  // Sur mobile, ne pas capturer le touch dans la slide musique (scroll interne prioritaire)
+  if (window.innerWidth <= 768 && e.target.closest('#slide-musique')) return;
   touchStartY = e.touches[0].clientY;
 }, { passive: true });
 
