@@ -125,6 +125,8 @@ document.addEventListener('touchstart', (e) => {
 }, { passive: true });
 
 document.addEventListener('touchend', (e) => {
+  // Sur mobile, ne pas naviguer entre slides si le touch est dans la slide musique (scroll interne)
+  if (window.innerWidth <= 768 && e.target.closest('#slide-musique')) return;
   const diff = touchStartY - e.changedTouches[0].clientY;
   if (Math.abs(diff) > 50) {
     diff > 0 ? goTo(current + 1) : goTo(current - 1);
@@ -198,7 +200,8 @@ arrowUp.classList.add('hidden');
     if (!btn) return;
     // Pour le carrousel : n'ouvre que si la slide est active
     var parentSlide = btn.closest('.cat-slide');
-    if (parentSlide && !parentSlide.classList.contains('active')) return;
+    // Sur mobile : tous les slides du catalogue sont cliquables (pas besoin d'être "active")
+    if (parentSlide && !parentSlide.classList.contains('active') && window.innerWidth > 768) return;
     e.preventDefault();
     open(btn.dataset.ytId);
   });

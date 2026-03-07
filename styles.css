@@ -1253,4 +1253,221 @@ h2.dark {
   #footer {
     padding: 0.85rem 1.5rem;
   }
+
+  /* ===== Mobile : chat masqué ===== */
+  #twitch-chat {
+    display: none !important;
+  }
+
+  /* ===== Mobile : slide musique scrollable ===== */
+  #slide-musique {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  /* Slide content : passe en flux normal */
+  #slide-musique .slide-content {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    max-width: 100%;
+    width: 100%;
+    padding: 80px 1.25rem 0.75rem;
+  }
+
+  /* Titres plus compacts sur mobile */
+  #slide-musique h2.dark {
+    font-size: clamp(1.4rem, 8vw, 2.2rem);
+    margin-bottom: 0.4rem;
+  }
+
+  #slide-musique .subtitle.dark {
+    font-size: 0.82rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* Cacher le bouton catalogue (inutile en layout flat) */
+  #slide-musique .btn-group {
+    display: none !important;
+  }
+
+  /* Cacher le bloc de texte "Catalogue" (mode catalogue désactivé sur mobile) */
+  #slide-musique .slide-text-cat {
+    display: none !important;
+  }
+
+  #slide-musique .slide-text-main {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  /* Slide visual : visible et en flux normal */
+  #slide-musique .slide-visual {
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 1.25rem 5rem;
+  }
+
+  /* Désactiver toutes les transitions des grilles sur mobile */
+  #slide-musique .yt-grid {
+    transition: none !important;
+  }
+
+  /* Grille principale : 2 colonnes auto-height */
+  #slide-musique .yt-grid-main {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto !important;
+    height: auto !important;
+    width: 100%;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* En mode catalogue sur desktop : main grid pars hors-écran → on annule */
+  #slide-musique.catalogue-mode .yt-grid-main {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  #slide-musique .yt-embed {
+    height: auto !important;
+  }
+
+  #slide-musique .yt-thumb-wrap {
+    position: relative !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Grille catalogue : visible et en flux normal */
+  #slide-musique .yt-grid-cat {
+    position: relative !important;
+    transform: none !important;
+    opacity: 1 !important;
+    flex-direction: column;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin-top: 0.75rem;
+  }
+
+  #slide-musique.catalogue-mode .yt-grid-cat {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Label "Catalogue" via pseudo-élément */
+  #slide-musique .yt-grid-cat::before {
+    content: 'Catalogue';
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.38);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Carrousel : conteneur plat */
+  #slide-musique .cat-carousel {
+    flex: none;
+    height: auto;
+    min-height: 0;
+  }
+
+  #slide-musique .cat-stage {
+    flex: none;
+    height: auto !important;
+    min-height: 0 !important;
+    perspective: none !important;
+    overflow: visible !important;
+  }
+
+  /* Track : grille 2 colonnes */
+  #slide-musique .cat-track {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    height: auto !important;
+  }
+
+  /* Chaque slide du catalogue : supprime les transforms JS */
+  #slide-musique .cat-slide {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    z-index: auto !important;
+    cursor: pointer !important;
+    transition: none !important;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* Bouton play toujours visible sur mobile */
+  #slide-musique .cat-play {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  #slide-musique .cat-play-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  #slide-musique .cat-play-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Masquer flèches et scrubber du carrousel */
+  #slide-musique .cat-controls,
+  #slide-musique .cat-scrubber {
+    display: none !important;
+  }
+
+  /* Masquer le panneau d'infos (géré par le carrousel desktop) */
+  #slide-musique .cat-info {
+    display: none !important;
+  }
+
+  /* ===== Mobile : slide contact ===== */
+  /* Logos qui wrappent si besoin */
+  .trust-logos {
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  /* ===== Mobile : lightbox plein écran ===== */
+  .yt-lb-content {
+    width: 96vw;
+  }
+
+  .yt-lb-close {
+    top: -40px;
+    right: 0;
+  }
 }
