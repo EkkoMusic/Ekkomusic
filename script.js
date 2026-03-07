@@ -62,19 +62,37 @@ function goTo(index) {
   if (isAnimating || index === current || index < 0 || index >= slides.length) return;
   isAnimating = true;
 
-  slides[current].classList.remove('active');
+  const goingDown = index > current;
+  const outgoing = slides[current];
+  const incoming = slides[index];
+
+  if (!goingDown) {
+    // Incoming comes from above: place it there instantly, then animate to 0
+    incoming.style.transition = 'none';
+    incoming.style.transform = 'translateY(-100%)';
+    incoming.offsetHeight; // force reflow
+    incoming.style.transition = '';
+    incoming.style.transform = '';
+  }
+
+  outgoing.classList.remove('active');
+  if (goingDown) outgoing.classList.add('exit-up');
+
+  incoming.classList.add('active');
   dots[current].classList.remove('active');
-
   current = index;
-
-  slides[current].classList.add('active');
   dots[current].classList.add('active');
 
   // Arrow visibility
   arrowUp.classList.toggle('hidden', current === 0);
   arrowDown.classList.toggle('hidden', current === slides.length - 1);
 
-  setTimeout(() => { isAnimating = false; }, 750);
+  setTimeout(() => {
+    outgoing.classList.remove('exit-up');
+    outgoing.style.transition = '';
+    outgoing.style.transform = '';
+    isAnimating = false;
+  }, 600);
 }
 
 // Dots

@@ -10,7 +10,7 @@
   --black: #0a0a0a;
   --accent: #ffffff;
   --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --transition: 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+  --transition: 0.55s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 html, body {
@@ -97,15 +97,22 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  opacity: 0;
+  transform: translateY(100%);
   pointer-events: none;
-  transition: opacity var(--transition);
+  transition: transform var(--transition);
   overflow: hidden;
+  z-index: 1;
 }
 
 .slide.active {
-  opacity: 1;
+  transform: translateY(0);
   pointer-events: all;
+  z-index: 2;
+}
+
+.slide.exit-up {
+  transform: translateY(-100%);
+  z-index: 2;
 }
 
 /* ===== Video BG ===== */
