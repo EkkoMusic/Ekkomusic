@@ -269,9 +269,13 @@ if (form) {
 
   function updateCarousel(animate) {
     var sh = slides[0].offsetHeight;
+    var n  = slides.length;
 
     slides.forEach(function (s, i) {
-      var dist    = i - current;
+      var dist = i - current;
+      // Chemin circulaire le plus court
+      if (dist > n / 2)  dist -= n;
+      if (dist < -n / 2) dist += n;
       var absDist = Math.abs(dist);
       var sign    = dist >= 0 ? 1 : -1;
       var active  = dist === 0;
@@ -309,16 +313,18 @@ if (form) {
     var pct = slides.length > 1 ? (current / (slides.length - 1)) * 100 : 50;
     thumb.style.top = pct + '%';
 
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === slides.length - 1;
   }
 
   prevBtn.addEventListener('click', function () {
-    if (current > 0) { flashDir('up'); current--; updateCarousel(true); }
+    flashDir('up');
+    current = (current - 1 + slides.length) % slides.length;
+    updateCarousel(true);
   });
 
   nextBtn.addEventListener('click', function () {
-    if (current < slides.length - 1) { flashDir('down'); current++; updateCarousel(true); }
+    flashDir('down');
+    current = (current + 1) % slides.length;
+    updateCarousel(true);
   });
 
   slides.forEach(function (slide, i) {
@@ -341,9 +347,9 @@ if (form) {
       if (catWheelCooldown) return;
       catWheelCooldown = true;
       if (e.deltaY > 20) {
-        if (current < slides.length - 1) { flashDir('down'); current++; updateCarousel(true); }
+        flashDir('down'); current = (current + 1) % slides.length; updateCarousel(true);
       } else if (e.deltaY < -20) {
-        if (current > 0) { flashDir('up'); current--; updateCarousel(true); }
+        flashDir('up'); current = (current - 1 + slides.length) % slides.length; updateCarousel(true);
       }
       setTimeout(function () { catWheelCooldown = false; }, 600);
     }, { passive: true });
