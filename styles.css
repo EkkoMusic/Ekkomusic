@@ -45,6 +45,7 @@ html, body {
   height: 38px;
   width: auto;
   filter: invert(1);
+  transition: filter 0.6s ease;
 }
 
 .logo img.no-invert {
