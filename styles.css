@@ -223,6 +223,13 @@ html, body {
   max-width: 520px;
 }
 
+#slide-musique .slide-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
 /* Eyebrow */
 .eyebrow {
   font-size: 0.7rem;
