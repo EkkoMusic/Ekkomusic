@@ -19,6 +19,12 @@ window.onYouTubeIframeAPIReady = function () {
         e.target.mute();
         e.target.playVideo();
       },
+      onStateChange: (e) => {
+        if (e.data === YT.PlayerState.PLAYING) {
+          const poster = document.getElementById('video-poster');
+          if (poster) { poster.style.opacity = '0'; setTimeout(() => poster.remove(), 600); }
+        }
+      },
     },
   });
 };
