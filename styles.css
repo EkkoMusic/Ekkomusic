@@ -352,7 +352,7 @@ h2.dark {
   display: grid;
   gap: 12px;
   transition: transform 1.15s cubic-bezier(0.77, 0, 0.175, 1),
-              opacity   1.15s cubic-bezier(0.77, 0, 0.175, 1);
+              opacity   1.15s cubic-bezier(0.88, 0, 1, 1);
 }
 
 /* Grille principale : 2 grandes vidéos empilées */
