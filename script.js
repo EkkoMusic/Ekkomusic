@@ -237,11 +237,24 @@ if (form) {
   var stage   = document.getElementById('cat-stage');
   var prevBtn = document.getElementById('cat-prev');
   var nextBtn = document.getElementById('cat-next');
-  var fmtEl   = document.getElementById('cat-info-format');
-  var titleEl = document.getElementById('cat-info-title');
-  var prodEl  = document.getElementById('cat-info-producteur');
-  var realEl  = document.getElementById('cat-info-realisation');
+  var fmtEl    = document.getElementById('cat-info-format');
+  var titleEl  = document.getElementById('cat-info-title');
+  var prodEl   = document.getElementById('cat-info-producteur');
+  var realEl   = document.getElementById('cat-info-realisation');
+  var scrubber = document.getElementById('cat-scrubber');
+  var thumb    = document.getElementById('cat-scrubber-thumb');
   if (!track || !stage) return;
+
+  var dirTimer = null;
+  function flashDir(dir) {
+    scrubber.classList.remove('dir-up', 'dir-down');
+    void scrubber.offsetWidth;
+    scrubber.classList.add('dir-' + dir);
+    clearTimeout(dirTimer);
+    dirTimer = setTimeout(function () {
+      scrubber.classList.remove('dir-up', 'dir-down');
+    }, 700);
+  }
 
   var slides  = Array.from(track.querySelectorAll('.cat-slide'));
   var current = 0;
@@ -291,22 +304,27 @@ if (form) {
     prodEl.textContent  = d.producteur;
     realEl.textContent  = d.realisation;
 
+    // Scrubber position
+    var pct = slides.length > 1 ? (current / (slides.length - 1)) * 100 : 50;
+    thumb.style.top = pct + '%';
+
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === slides.length - 1;
   }
 
   prevBtn.addEventListener('click', function () {
-    if (current > 0) { current--; updateCarousel(true); }
+    if (current > 0) { flashDir('up'); current--; updateCarousel(true); }
   });
 
   nextBtn.addEventListener('click', function () {
-    if (current < slides.length - 1) { current++; updateCarousel(true); }
+    if (current < slides.length - 1) { flashDir('down'); current++; updateCarousel(true); }
   });
 
   slides.forEach(function (slide, i) {
     slide.addEventListener('click', function (e) {
       if (i !== current) {
         e.preventDefault();
+        flashDir(i < current ? 'up' : 'down');
         current = i;
         updateCarousel(true);
       }
