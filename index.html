@@ -124,6 +124,60 @@
     <div class="chat-body" id="chat-body"></div>
   </div>
 
+  <!-- Catalogue Panel -->
+  <div id="catalogue-panel">
+    <div class="catalogue-header">
+      <h2 class="catalogue-title">Catalogue</h2>
+      <button id="catalogue-close" aria-label="Fermer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="catalogue-grid">
+
+      <div class="cat-card">
+        <div class="cat-thumb">
+          <iframe src="https://www.youtube.com/embed/ICbvqYJVDno" title="Création 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="cat-info">
+          <span class="cat-tag">Trailer</span>
+          <p class="cat-name">Création #1</p>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-thumb">
+          <iframe src="https://www.youtube.com/embed/Oa51i4xSz9c" title="Création 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="cat-info">
+          <span class="cat-tag">Cinematic</span>
+          <p class="cat-name">Création #2</p>
+        </div>
+      </div>
+
+      <div class="cat-card cat-placeholder">
+        <div class="cat-thumb cat-thumb-empty">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="cat-info">
+          <span class="cat-tag">Bientôt</span>
+          <p class="cat-name">Prochain projet</p>
+        </div>
+      </div>
+
+      <div class="cat-card cat-placeholder">
+        <div class="cat-thumb cat-thumb-empty">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="cat-info">
+          <span class="cat-tag">Bientôt</span>
+          <p class="cat-name">Prochain projet</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div id="catalogue-overlay"></div>
+
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="script.js"></script>

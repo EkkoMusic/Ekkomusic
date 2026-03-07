@@ -158,3 +158,35 @@ form.addEventListener('submit', (e) => {
     btn.disabled = false;
   }, 3000);
 });
+
+// ===== Catalogue Panel =====
+(function () {
+  const panel = document.getElementById('catalogue-panel');
+  const overlay = document.getElementById('catalogue-overlay');
+  const closeBtn = document.getElementById('catalogue-close');
+  const openBtn = document.querySelector('a.btn-dark');
+
+  if (!panel || !overlay || !closeBtn || !openBtn) return;
+
+  function openCatalogue() {
+    panel.classList.add('open');
+    overlay.classList.add('visible');
+  }
+
+  function closeCatalogue() {
+    panel.classList.remove('open');
+    overlay.classList.remove('visible');
+  }
+
+  openBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    openCatalogue();
+  });
+
+  closeBtn.addEventListener('click', closeCatalogue);
+  overlay.addEventListener('click', closeCatalogue);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeCatalogue();
+  });
+})();
