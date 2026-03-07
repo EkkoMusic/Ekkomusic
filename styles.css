@@ -398,11 +398,104 @@ h2.dark {
   height: 100%;
 }
 
-.yt-embed iframe {
+/* Thumbnail wrap pour la grille principale */
+.yt-thumb-wrap {
+  position: relative;
   width: 100%;
   height: 100%;
+}
+
+.yt-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+
+.yt-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.18);
   border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.25s ease;
+}
+
+.yt-play-btn:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.yt-play-btn:hover .cat-play-icon {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: #fff;
+  transform: scale(1.1);
+}
+
+/* ===== Lightbox ===== */
+.yt-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yt-lightbox[hidden] {
+  display: none;
+}
+
+.yt-lb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+}
+
+.yt-lb-content {
+  position: relative;
+  width: min(90vw, 1100px);
+  aspect-ratio: 16 / 9;
+  z-index: 1;
+  animation: lb-in 0.25s ease;
+}
+
+@keyframes lb-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.yt-lb-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  display: block;
+}
+
+.yt-lb-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.yt-lb-close:hover {
+  background: rgba(255,255,255,0.25);
 }
 
 /* ===== Catalogue Carousel 3D ===== */

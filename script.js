@@ -195,6 +195,42 @@ if (form) {
   });
 })();
 
+// ===== Lightbox vidéo =====
+(function () {
+  var lb      = document.getElementById('yt-lightbox');
+  var iframe  = document.getElementById('yt-lb-iframe');
+  var overlay = document.getElementById('yt-lb-overlay');
+  var closeBtn= document.getElementById('yt-lb-close');
+  if (!lb) return;
+
+  function open(id) {
+    iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+    lb.hidden = false;
+  }
+
+  function close() {
+    lb.hidden = true;
+    iframe.src = '';
+  }
+
+  overlay.addEventListener('click', close);
+  closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  // Délégation : capture tout clic sur [data-yt-id]
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-yt-id]');
+    if (!btn) return;
+    // Pour le carrousel : n'ouvre que si la slide est active
+    var parentSlide = btn.closest('.cat-slide');
+    if (parentSlide && !parentSlide.classList.contains('active')) return;
+    e.preventDefault();
+    open(btn.dataset.ytId);
+  });
+})();
+
 // ===== Catalogue Carousel 3D =====
 (function () {
   var track   = document.getElementById('cat-track');
