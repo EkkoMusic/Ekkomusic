@@ -39,6 +39,7 @@ const slides = Array.from(document.querySelectorAll('.slide'));
 const dots = Array.from(document.querySelectorAll('.dot'));
 const arrowUp = document.getElementById('arrow-up');
 const arrowDown = document.getElementById('arrow-down');
+const logoEl = document.getElementById('logo');
 let current = 0;
 let isAnimating = false;
 
@@ -69,7 +70,7 @@ function goTo(index) {
   dots.forEach(d => d.classList.toggle('theme-dark', current === 1));
 
   // Logo invert : fond clair (slide 1) → logo noir, fond sombre → logo blanc
-  document.getElementById('logo').classList.toggle('invert', current === 1);
+  logoEl.classList.toggle('invert', current === 1);
 
   // Arrow visibility
   arrowUp.classList.toggle('hidden', current === 0);
@@ -132,23 +133,6 @@ document.addEventListener('touchend', (e) => {
 
 // Init arrows
 arrowUp.classList.add('hidden');
-
-// ===== Contact form =====
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button');
-    const original = btn.textContent;
-    btn.textContent = 'MERCI !';
-    btn.disabled = true;
-    form.reset();
-    setTimeout(() => {
-      btn.textContent = original;
-      btn.disabled = false;
-    }, 3000);
-  });
-}
 
 // ===== Catalogue Toggle =====
 (function () {
@@ -351,7 +335,11 @@ if (form) {
     }).observe(muSlide, { attributes: true, attributeFilter: ['class'] });
   }
 
-  window.addEventListener('resize', function () { updateCarousel(false); });
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { updateCarousel(false); }, 150);
+  });
 
   updateCarousel(false);
 })();

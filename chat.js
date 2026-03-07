@@ -309,11 +309,11 @@ const MESSAGES = [
       user.name + '</span>' +
       '<span class="chat-sep"> : </span>' +
       '<span class="text">' + text + '</span>';
-    body.appendChild(msg);
     while (body.children.length > 60) {
       body.removeChild(body.firstChild);
     }
-    body.scrollTop = body.scrollHeight;
+    body.appendChild(msg);
+    msg.scrollIntoView({ block: 'end' });
   }
 
   function scheduleNext() {
