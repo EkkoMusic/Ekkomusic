@@ -45,23 +45,53 @@
     </section>
 
     <!-- Slide 2 : Écouter -->
-    <section class="slide" data-theme="light">
+    <section class="slide" id="slide-musique" data-theme="light">
       <div class="static-bg" style="background: #f5f0eb;"></div>
       <div class="slide-content left">
         <p class="eyebrow dark">Musique</p>
-        <h2 class="dark">Mes dernières<br>créations</h2>
-        <p class="subtitle dark">Des sons travaillés avec passion,<br>prêts à vous transporter.</p>
+        <div class="slide-texts">
+          <div class="slide-text-block slide-text-main">
+            <h2 class="dark">Mes dernières<br>créations</h2>
+            <p class="subtitle dark">Des sons travaillés avec passion,<br>prêts à vous transporter.</p>
+          </div>
+          <div class="slide-text-block slide-text-cat">
+            <h2 class="dark">Catalogue</h2>
+            <p class="subtitle dark">Tous mes projets récents,<br>disponibles à l'écoute.</p>
+          </div>
+        </div>
         <div class="btn-group">
-          <a href="#" class="btn btn-dark">Catalogue</a>
+          <a href="#" class="btn btn-dark" id="catalogue-toggle">Catalogue</a>
         </div>
       </div>
       <div class="slide-visual">
-        <div class="yt-grid">
+        <!-- Grille principale : 2 grandes vidéos -->
+        <div class="yt-grid yt-grid-main">
           <div class="yt-embed">
             <iframe src="https://www.youtube.com/embed/ICbvqYJVDno" title="Ekkomusic création 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="yt-embed">
             <iframe src="https://www.youtube.com/embed/Oa51i4xSz9c" title="Ekkomusic création 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!-- Grille catalogue : petites vidéos -->
+        <div class="yt-grid yt-grid-cat">
+          <div class="yt-embed">
+            <iframe src="https://www.youtube.com/embed/ICbvqYJVDno" title="Création 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="yt-embed">
+            <iframe src="https://www.youtube.com/embed/Oa51i4xSz9c" title="Création 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="yt-embed yt-embed-soon">
+            <div class="yt-soon-inner">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              <span>Bientôt</span>
+            </div>
+          </div>
+          <div class="yt-embed yt-embed-soon">
+            <div class="yt-soon-inner">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              <span>Bientôt</span>
+            </div>
           </div>
         </div>
       </div>
@@ -123,60 +153,6 @@
     </div>
     <div class="chat-body" id="chat-body"></div>
   </div>
-
-  <!-- Catalogue Panel -->
-  <div id="catalogue-panel">
-    <div class="catalogue-header">
-      <h2 class="catalogue-title">Catalogue</h2>
-      <button id="catalogue-close" aria-label="Fermer">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="catalogue-grid">
-
-      <div class="cat-card">
-        <div class="cat-thumb">
-          <iframe src="https://www.youtube.com/embed/ICbvqYJVDno" title="Création 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="cat-info">
-          <span class="cat-tag">Trailer</span>
-          <p class="cat-name">Création #1</p>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-thumb">
-          <iframe src="https://www.youtube.com/embed/Oa51i4xSz9c" title="Création 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="cat-info">
-          <span class="cat-tag">Cinematic</span>
-          <p class="cat-name">Création #2</p>
-        </div>
-      </div>
-
-      <div class="cat-card cat-placeholder">
-        <div class="cat-thumb cat-thumb-empty">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        </div>
-        <div class="cat-info">
-          <span class="cat-tag">Bientôt</span>
-          <p class="cat-name">Prochain projet</p>
-        </div>
-      </div>
-
-      <div class="cat-card cat-placeholder">
-        <div class="cat-thumb cat-thumb-empty">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        </div>
-        <div class="cat-info">
-          <span class="cat-tag">Bientôt</span>
-          <p class="cat-name">Prochain projet</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <div id="catalogue-overlay"></div>
 
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>

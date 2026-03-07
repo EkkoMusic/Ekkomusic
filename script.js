@@ -159,34 +159,18 @@ form.addEventListener('submit', (e) => {
   }, 3000);
 });
 
-// ===== Catalogue Panel =====
+// ===== Catalogue Toggle =====
 (function () {
-  const panel = document.getElementById('catalogue-panel');
-  const overlay = document.getElementById('catalogue-overlay');
-  const closeBtn = document.getElementById('catalogue-close');
-  const openBtn = document.querySelector('a.btn-dark');
+  const slide = document.getElementById('slide-musique');
+  const btn = document.getElementById('catalogue-toggle');
+  if (!slide || !btn) return;
 
-  if (!panel || !overlay || !closeBtn || !openBtn) return;
+  let isCatalogue = false;
 
-  function openCatalogue() {
-    panel.classList.add('open');
-    overlay.classList.add('visible');
-  }
-
-  function closeCatalogue() {
-    panel.classList.remove('open');
-    overlay.classList.remove('visible');
-  }
-
-  openBtn.addEventListener('click', function (e) {
+  btn.addEventListener('click', function (e) {
     e.preventDefault();
-    openCatalogue();
-  });
-
-  closeBtn.addEventListener('click', closeCatalogue);
-  overlay.addEventListener('click', closeCatalogue);
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeCatalogue();
+    isCatalogue = !isCatalogue;
+    slide.classList.toggle('catalogue-mode', isCatalogue);
+    btn.textContent = isCatalogue ? 'Mes dernières créations' : 'Catalogue';
   });
 })();
