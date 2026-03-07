@@ -1319,6 +1319,7 @@ h2.dark {
     width: 100%;
     height: auto !important;
     min-height: 0 !important;
+    overflow: hidden;
     padding: 0 1.25rem 5rem;
   }
 
