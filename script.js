@@ -146,18 +146,20 @@ arrowUp.classList.add('hidden');
 
 // ===== Contact form =====
 const form = document.getElementById('contact-form');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const btn = form.querySelector('button');
-  const original = btn.textContent;
-  btn.textContent = 'MERCI !';
-  btn.disabled = true;
-  form.reset();
-  setTimeout(() => {
-    btn.textContent = original;
-    btn.disabled = false;
-  }, 3000);
-});
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    const original = btn.textContent;
+    btn.textContent = 'MERCI !';
+    btn.disabled = true;
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.disabled = false;
+    }, 3000);
+  });
+}
 
 // ===== Catalogue Toggle =====
 (function () {
