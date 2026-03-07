@@ -55,6 +55,7 @@ function goTo(index) {
   dots[current].classList.remove('active');
   current = index;
   dots[current].classList.add('active');
+  dots.forEach(d => d.classList.toggle('theme-dark', current === 1));
 
   // Arrow visibility
   arrowUp.classList.toggle('hidden', current === 0);
