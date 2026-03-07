@@ -170,7 +170,7 @@ html, body {
 
 .hero-title-block {
   position: absolute;
-  right: 8vw;
+  left: 8vw;
   top: 50%;
   transform: translateY(-50%);
   text-align: left;
@@ -179,13 +179,13 @@ html, body {
 }
 
 .hero-pixel-title {
-  font-family: 'Press Start 2P', monospace !important;
-  font-size: clamp(2.8rem, 7vw, 6rem) !important;
+  font-family: 'VT323', monospace !important;
+  font-size: clamp(4rem, 10vw, 9rem) !important;
   font-weight: 400 !important;
-  letter-spacing: 0.02em !important;
-  line-height: 1.2 !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1.1 !important;
   color: #ffffff;
-  text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
 }
 
 .slide-content.left {
