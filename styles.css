@@ -535,6 +535,12 @@ h2.dark {
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
   box-shadow: 0 8px 32px rgba(0,0,0,0.5);
   overflow: hidden;
+  transform: translateX(0);
+  transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#twitch-chat.chat-hidden {
+  transform: translateX(calc(100% + 40px));
 }
 
 .chat-header {
