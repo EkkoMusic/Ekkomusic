@@ -168,6 +168,26 @@ html, body {
   max-width: 600px;
 }
 
+.hero-title-block {
+  position: absolute;
+  right: 8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+  padding: 0;
+  max-width: 700px;
+}
+
+.hero-pixel-title {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(2.8rem, 7vw, 6rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.2 !important;
+  color: #ffffff;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+}
+
 .slide-content.left {
   text-align: left;
   max-width: 520px;
