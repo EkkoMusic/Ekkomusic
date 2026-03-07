@@ -212,8 +212,8 @@ if (form) {
   // Paramètres 3D selon la distance au centre
   var PARAMS = [
     { txRatio: 0,    ry:  0,  scale: 1,    opacity: 1,    z: 10 },  // centre
-    { txRatio: 0.62, ry: 52,  scale: 0.78, opacity: 0.68, z:  5 },  // ±1
-    { txRatio: 0.95, ry: 68,  scale: 0.55, opacity: 0.35, z:  2 },  // ±2
+    { txRatio: 0.55, ry: 52,  scale: 0.78, opacity: 0.68, z:  5 },  // ±1
+    { txRatio: 0.85, ry: 68,  scale: 0.55, opacity: 0.35, z:  2 },  // ±2
   ];
 
   function updateCarousel(animate) {
