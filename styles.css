@@ -356,12 +356,17 @@ h2.dark {
 
 /* Grille catalogue : démarre hors écran à gauche */
 .yt-grid-cat {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: auto;
   align-content: start;
   transform: translateX(-120vw);
   overflow-y: auto;
-  gap: 10px;
+  gap: 14px;
+}
+
+/* Vidéo centrale (4e) : colonne du milieu */
+.yt-grid-cat .yt-embed:nth-child(4) {
+  grid-column: 2;
 }
 
 /* État catalogue actif */
