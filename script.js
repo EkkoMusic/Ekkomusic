@@ -165,6 +165,28 @@ form.addEventListener('submit', (e) => {
   const btn   = document.getElementById('catalogue-toggle');
   if (!slide || !btn) return;
 
+  const GLITCH_CHARS = '@#$%&!?/\\|0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+  function scramble(h2, duration) {
+    var originalHTML = h2.innerHTML;
+    var plainText    = h2.textContent;
+
+    var iv = setInterval(function () {
+      var out = '';
+      for (var i = 0; i < plainText.length; i++) {
+        out += (plainText[i] === ' ')
+          ? ' '
+          : GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+      }
+      h2.textContent = out;
+    }, 40);
+
+    setTimeout(function () {
+      clearInterval(iv);
+      h2.innerHTML = originalHTML;
+    }, duration);
+  }
+
   let isCatalogue = false;
   let animating   = false;
 
@@ -173,11 +195,13 @@ form.addEventListener('submit', (e) => {
     if (animating) return;
     animating = true;
 
-    // Glitch sur le titre actuellement visible
-    const activeBlock = slide.querySelector(
+    var activeBlock = slide.querySelector(
       isCatalogue ? '.slide-text-cat' : '.slide-text-main'
     );
     activeBlock.classList.add('glitching');
+
+    // Scramble des lettres du titre pendant tout le glitch
+    scramble(activeBlock.querySelector('h2'), 460);
 
     // Au pic du glitch → bascule les classes (vidéos + texte)
     setTimeout(function () {
