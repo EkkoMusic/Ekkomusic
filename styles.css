@@ -1201,14 +1201,14 @@ h2.dark {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 3rem);
+  flex-wrap: nowrap;
 }
 
 .trust-logo {
-  height: clamp(28px, 4vh, 52px);
+  height: clamp(24px, 3.5vh, 48px);
   width: auto;
-  max-width: 130px;
+  max-width: 100px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.55;
