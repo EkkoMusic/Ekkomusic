@@ -44,6 +44,11 @@ html, body {
 .logo img {
   height: 38px;
   width: auto;
+  filter: invert(1);
+}
+
+.logo img.no-invert {
+  filter: none;
 }
 
 .nav-links {
