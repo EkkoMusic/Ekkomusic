@@ -611,6 +611,10 @@ h2.dark {
   cursor: default;
 }
 
+.chat-sep {
+  color: rgba(255,255,255,0.35);
+}
+
 .chat-msg .text {
   color: rgba(255,255,255,0.78);
 }
