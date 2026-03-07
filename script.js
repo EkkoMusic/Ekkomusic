@@ -118,9 +118,10 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') goTo(current - 1);
 });
 
-// Wheel
+// Wheel — cède la priorité au carrousel si la souris est dessus
 let wheelCooldown = false;
 document.addEventListener('wheel', (e) => {
+  if (e.target.closest('.yt-grid-cat')) return; // géré par le carrousel
   if (wheelCooldown) return;
   wheelCooldown = true;
   if (e.deltaY > 30) goTo(current + 1);
@@ -330,6 +331,23 @@ if (form) {
       }
     });
   });
+
+  // Molette sur la zone carrousel
+  var catGrid = document.querySelector('.yt-grid-cat');
+  if (catGrid) {
+    var catWheelCooldown = false;
+    catGrid.addEventListener('wheel', function (e) {
+      e.stopPropagation();
+      if (catWheelCooldown) return;
+      catWheelCooldown = true;
+      if (e.deltaY > 20) {
+        if (current < slides.length - 1) { flashDir('down'); current++; updateCarousel(true); }
+      } else if (e.deltaY < -20) {
+        if (current > 0) { flashDir('up'); current--; updateCarousel(true); }
+      }
+      setTimeout(function () { catWheelCooldown = false; }, 600);
+    }, { passive: true });
+  }
 
   // Recalcul quand le mode catalogue s'active
   var muSlide = document.getElementById('slide-musique');
