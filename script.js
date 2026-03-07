@@ -258,7 +258,7 @@ if (form) {
   }
 
   var slides  = Array.from(track.querySelectorAll('.cat-slide'));
-  var current = 0;
+  var current = 2; // Démarre sur Ascension II
 
   // Paramètres 3D verticaux selon la distance au centre
   var PARAMS = [
