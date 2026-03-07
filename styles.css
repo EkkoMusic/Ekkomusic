@@ -1182,27 +1182,36 @@ h2.dark {
   color: rgba(255,255,255,0.78);
 }
 
-/* ===== Trust / Références (slide 3) ===== */
-.trust-content {
-  max-width: 860px;
+/* ===== Trust / Ils m'ont fait confiance ===== */
+.trust-section {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+}
+
+.trust-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.5rem;
 }
 
 .trust-logos {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(2rem, 5vw, 5rem);
+  gap: clamp(1.5rem, 4vw, 4rem);
   flex-wrap: wrap;
-  margin-top: 3.5rem;
 }
 
 .trust-logo {
-  height: clamp(36px, 5vh, 64px);
+  height: clamp(28px, 4vh, 52px);
   width: auto;
-  max-width: 160px;
+  max-width: 130px;
   object-fit: contain;
   filter: brightness(0) invert(1);
-  opacity: 0.65;
+  opacity: 0.55;
   transition: opacity 0.25s;
 }
 
