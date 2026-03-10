@@ -215,6 +215,8 @@ arrowUp.classList.add('hidden');
 
 // ===== Catalogue Carousel 3D =====
 (function () {
+  // Désactivé sur mobile : le layout plat CSS prend le relais (grille 2 colonnes)
+  if (window.innerWidth <= 768) return;
   var track   = document.getElementById('cat-track');
   var stage   = document.getElementById('cat-stage');
   var prevBtn = document.getElementById('cat-prev');
