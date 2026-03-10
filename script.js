@@ -139,6 +139,26 @@ document.addEventListener('touchend', (e) => {
   }
 }, { passive: true });
 
+// Swipe sur les vignettes vidéo → navigation entre slides (mobile)
+// Les éléments <button> vidéo absorbent le touch et bloquent le swipe global ;
+// on pose des handlers directs : swipe = navigation, tap = ouverture vidéo.
+(function () {
+  document.querySelectorAll('.yt-thumb-wrap, .cat-thumb').forEach(function (el) {
+    var startY = 0;
+    el.addEventListener('touchstart', function (e) {
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    el.addEventListener('touchend', function (e) {
+      var diff = startY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) > 50) {
+        e.preventDefault(); // empêche le click qui suivrait le swipe
+        diff > 0 ? goTo(current + 1) : goTo(current - 1);
+      }
+      // diff < 50 → tap : rien à faire, le click se déclenche normalement
+    }); // non-passive pour pouvoir appeler preventDefault
+  });
+})();
+
 // Init arrows
 arrowUp.classList.add('hidden');
 
