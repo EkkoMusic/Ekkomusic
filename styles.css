@@ -334,18 +334,18 @@ h2.dark {
 /* Bouton fantôme — secondaire discret */
 .btn.btn-ghost {
   background: transparent;
-  border: none;
-  color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.45);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.7rem 0.25rem;
+  padding: 0.7rem 1.4rem;
   text-decoration: none;
-  transition: color 0.25s;
-  align-self: center;
+  transition: color 0.25s, border-color 0.25s;
 }
 .btn.btn-ghost:hover {
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.55);
 }
 
 .subtitle.dark {
