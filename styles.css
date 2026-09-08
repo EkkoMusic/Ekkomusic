@@ -1584,6 +1584,10 @@ body.inner-page #navbar {
   text-align: center;
 }
 
+.page-hero .btn-group {
+  justify-content: center;
+}
+
 .page-hero .eyebrow {
   margin-bottom: 1rem;
 }
