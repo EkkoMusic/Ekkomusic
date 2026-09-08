@@ -5,6 +5,8 @@ function hidePoster() {
   if (poster) { poster.style.opacity = '0'; setTimeout(() => poster.remove(), 600); }
 }
 window.onYouTubeIframeAPIReady = function () {
+  // Sur mobile l'autoplay est bloqué par le navigateur → le poster reste en fond
+  if (window.innerWidth <= 768) return;
   player = new YT.Player('yt-player', {
     videoId: 'e4VzGciFDxo',
     playerVars: {
@@ -205,7 +207,7 @@ arrowUp.classList.add('hidden');
   if (!lb) return;
 
   function open(id) {
-    iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+    iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
     lb.hidden = false;
   }
 
