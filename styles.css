@@ -1474,6 +1474,13 @@ body.inner-page {
   height: auto;
 }
 
+/* Permet le scroll de la fenêtre sur les pages internes
+   (html reste hidden sur la homepage pour le slider) */
+html:has(body.inner-page) {
+  overflow: auto;
+  height: auto;
+}
+
 body.inner-page #slider,
 body.inner-page #pagination,
 body.inner-page .arrow {
