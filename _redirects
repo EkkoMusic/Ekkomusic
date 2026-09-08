@@ -1,0 +1,11 @@
+# Canonical : www → non-www (HTTPS géré par Netlify automatiquement)
+https://www.ekko-music.fr/* https://ekko-music.fr/:splat 301!
+
+# Trailing-slash cohérent (Netlify le gère nativement, mais au cas où)
+/a-propos  /a-propos/  301
+/contact   /contact/   301
+/projets   /projets/   301
+/compositeur-musique-a-l-image  /compositeur-musique-a-l-image/  301
+/musique-trailer                /musique-trailer/                301
+/musique-gaming-esport          /musique-gaming-esport/          301
+/sound-design                   /sound-design/                   301
