@@ -1802,3 +1802,351 @@ body.inner-page.light-page .menu-toggle span {
     height: 48px;
   }
 }
+
+/* ===== Redesign composants pages services 2026 ===== */
+
+/* Manifesto / phrase forte */
+.manifesto {
+  padding: 6rem 8vw;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.manifesto-text {
+  font-size: clamp(1.2rem, 2.8vw, 1.9rem);
+  color: rgba(255,255,255,0.88);
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 780px;
+  margin: 0 auto;
+  letter-spacing: -0.01em;
+}
+
+/* Split deux colonnes */
+.content-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  padding: 4.5rem 8vw;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.content-split-text h2 {
+  font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+}
+
+.content-split-text p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.85;
+  margin-bottom: 1.1rem;
+  max-width: 540px;
+}
+
+.content-split-text a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.content-split-text a:hover {
+  color: var(--white);
+}
+
+.content-split-visual {
+  position: relative;
+}
+
+.content-split.reverse .content-split-visual {
+  order: -1;
+}
+
+/* Grille compétences */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.skill-item {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.62);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Étapes de process */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 2.5rem 2rem;
+  margin-top: 2.5rem;
+}
+
+.process-step-num {
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.process-step-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.process-step-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.65;
+}
+
+/* Projet mis en avant (inline) */
+.feature-project {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 2rem;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s;
+  max-width: 860px;
+}
+
+.feature-project:hover {
+  border-color: rgba(255,255,255,0.22);
+}
+
+.feature-project-media {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.feature-project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.feature-project-info {
+  padding: 1.2rem 1.5rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.feature-project-tag {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.feature-project-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.feature-project-client {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.feature-project-cta {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.07em;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.feature-project:hover .feature-project-cta {
+  color: rgba(255,255,255,0.82);
+}
+
+/* Page À propos */
+.about-intro {
+  padding: 0.5rem 8vw 4rem;
+  max-width: 760px;
+}
+
+.about-intro p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.88;
+  margin-bottom: 1.1rem;
+}
+
+.about-quote {
+  border-left: 2px solid rgba(255,255,255,0.16);
+  padding: 0.5rem 0 0.5rem 1.75rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+.about-references {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.about-ref-item {
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+}
+
+.about-ref-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.about-ref-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.65;
+}
+
+/* Tags visuels (page gaming) */
+.tags-visual {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.tag-v {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.48);
+  letter-spacing: 0.07em;
+}
+
+/* Lien inline dans corps de texte */
+.body-link {
+  color: rgba(255,255,255,0.72);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.body-link:hover {
+  color: var(--white);
+}
+
+/* CTA final de page */
+.final-cta-block {
+  padding: 6rem 8vw;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.final-cta-block h2 {
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  color: var(--white);
+  max-width: 600px;
+  line-height: 1.22;
+}
+
+.final-cta-block p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.48);
+  max-width: 480px;
+  line-height: 1.78;
+  margin: 0;
+}
+
+/* page-section avec limites de largeur pour lisibilité */
+.page-section.narrow p {
+  max-width: 640px;
+}
+
+/* Responsive redesign */
+@media (max-width: 900px) {
+  .content-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .content-split.reverse .content-split-visual {
+    order: 0;
+  }
+  .content-split-text p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .manifesto {
+    padding: 4rem 1.25rem;
+  }
+  .manifesto-text {
+    font-size: 1.12rem;
+  }
+  .content-split {
+    padding: 2.5rem 1.25rem;
+    gap: 1.75rem;
+  }
+  .about-intro {
+    padding: 0.5rem 1.25rem 3rem;
+  }
+  .process-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .final-cta-block {
+    padding: 4rem 1.25rem;
+  }
+  .about-references {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .tags-visual {
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+  .feature-project-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
