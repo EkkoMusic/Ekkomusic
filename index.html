@@ -3,54 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ekkomusic</title>
+
+  <!-- ===== SEO Core ===== -->
+  <title>Compositeur musique à l'image &amp; Sound Designer | Ekko Music</title>
+  <meta name="description" content="Ekko Music compose des musiques originales pour trailers, gaming, esport et événements. Compositeur à l'image et sound designer, travaillant avec Karmine Corp, ZeratoR et les plus grandes productions françaises.">
+  <link rel="canonical" href="https://ekko-music.fr/">
+  <meta name="robots" content="index, follow">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ekko-music.fr/">
+  <meta property="og:title" content="Compositeur musique à l'image &amp; Sound Designer | Ekko Music">
+  <meta property="og:description" content="Ekko Music compose des musiques originales pour trailers, gaming, esport et événements. Travaillant avec Karmine Corp, ZeratoR et les plus grandes productions françaises.">
+  <meta property="og:image" content="https://ekko-music.fr/images/EkkoSqr2_White.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Ekko Music">
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Ekko_Twitch">
+  <meta name="twitter:title" content="Compositeur musique à l'image &amp; Sound Designer | Ekko Music">
+  <meta name="twitter:description" content="Ekko Music compose des musiques originales pour trailers, gaming, esport et événements.">
+  <meta name="twitter:image" content="https://ekko-music.fr/images/EkkoSqr2_White.jpg">
+
+  <!-- ===== Structured Data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://ekko-music.fr/#website",
+        "url": "https://ekko-music.fr/",
+        "name": "Ekko Music",
+        "description": "Compositeur de musique à l'image et sound designer pour trailers, gaming, esport et événements",
+        "inLanguage": "fr-FR",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://ekko-music.fr/projets/",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://ekko-music.fr/#organization",
+        "name": "Ekko Music",
+        "alternateName": "Ekkomusic",
+        "url": "https://ekko-music.fr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ekko-music.fr/images/EkkoSqr1_Black.jpg",
+          "width": 400,
+          "height": 400
+        },
+        "description": "Ekko Music est un compositeur de musique à l'image et sound designer spécialisé dans les trailers, la musique gaming, esport et les événements en direct. Il travaille avec des productions françaises majeures comme Karmine Corp et ZeratoR.",
+        "email": "ekkomusicoff@gmail.com",
+        "sameAs": [
+          "https://x.com/Ekko_Twitch"
+        ],
+        "knowsAbout": [
+          "Composition musicale à l'image",
+          "Musique de trailer",
+          "Musique gaming et esport",
+          "Sound design",
+          "Musique d'événement"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ===== Performance ===== -->
   <link rel="preconnect" href="https://www.youtube.com">
   <link rel="preconnect" href="https://img.youtube.com">
   <link rel="dns-prefetch" href="https://www.youtube.com">
   <link rel="dns-prefetch" href="https://img.youtube.com">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav id="navbar">
-    <div class="logo" data-slide="0" role="button" aria-label="Retour accueil" style="cursor:pointer">
-      <img id="logo" src="images/EkkoSqr2_White.jpg" alt="Ekkomusic">
-    </div>
-    <ul class="nav-links">
-      <li><a href="#" data-slide="0">Accueil</a></li>
-      <li><a href="#" data-slide="1">Écouter</a></li>
-      <li><a href="#" data-slide="2">Contact</a></li>
-    </ul>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <header>
+    <nav id="navbar" aria-label="Navigation principale">
+      <div class="logo" role="link" data-slide="0" aria-label="Ekko Music — Accueil" style="cursor:pointer">
+        <img id="logo" src="/images/EkkoSqr2_White.jpg" alt="Ekko Music" width="38" height="38">
+      </div>
+      <ul class="nav-links" role="list">
+        <li><a href="/" data-slide="0">Accueil</a></li>
+        <li><a href="/projets/" data-slide="1">Écouter</a></li>
+        <li><a href="/contact/" data-slide="2">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
   <!-- Slides -->
   <main id="slider">
 
-    <!-- Slide 1 : Hero avec vidéo YouTube -->
-    <section class="slide active" data-theme="dark">
+    <!-- Slide 1 : Hero -->
+    <section class="slide active" data-theme="dark" aria-label="Accueil">
       <div class="video-bg">
-        <img id="video-poster" src="images/F9rgp9OW8AASeur.jfif" alt="" fetchpriority="high">
-        <div id="yt-player"></div>
-        <div class="overlay"></div>
+        <img id="video-poster" src="/images/F9rgp9OW8AASeur.jfif" alt="" role="presentation" fetchpriority="high" width="1920" height="1080">
+        <div id="yt-player" aria-hidden="true"></div>
+        <div class="overlay" aria-hidden="true"></div>
       </div>
       <div class="slide-content hero-title-block">
-<h1 class="hero-pixel-title">Ek<span class="glitch-k">k</span>o Music</h1>
-        <p class="subtitle">Pop culture, Event & Trailer Composer</p>
-        <div class="btn-group">
-          <a href="#" class="btn btn-primary" data-slide="1">ÉCOUTER</a>
-          <a href="#" class="btn btn-outline" data-slide="2">EN SAVOIR PLUS</a>
-        </div>
-      </div>
 
+        <!-- Branding visuel (non H1) -->
+        <p class="hero-pixel-title" aria-hidden="true">Ek<span class="glitch-k">k</span>o Music</p>
+
+        <!-- H1 sémantique pour moteurs de recherche -->
+        <h1 class="hero-seo-title">
+          Compositeur de musique à l'image<br>
+          <span class="hero-seo-accent">&amp; Sound Designer</span>
+        </h1>
+
+        <p class="subtitle">Trailers · Gaming &amp; Esport · Événements<br>Compositions originales travaillées en studio, sans IA.</p>
+
+        <div class="btn-group">
+          <a href="/projets/" class="btn btn-primary" data-slide="1">ÉCOUTER</a>
+          <a href="/contact/" class="btn btn-outline" data-slide="2">EN SAVOIR PLUS</a>
+        </div>
+
+        <!-- Contenu crawlable décrivant les services (visible pour moteurs, discret visuellement) -->
+        <p class="seo-desc">
+          Ekko Music crée des musiques originales pour des trailers gaming et esport, des événements en direct et des productions audiovisuelles.
+          Clients : <a href="https://x.com/KarmineCorp" rel="noopener" class="seo-link">Karmine Corp</a>,
+          <a href="https://x.com/ZeratoR" rel="noopener" class="seo-link">ZeratoR</a>, Maxime Tchoroukian (Décimus), Sinj Crew.
+        </p>
+      </div>
     </section>
 
     <!-- Slide 2 : Écouter -->
-    <section class="slide" id="slide-musique" data-theme="light">
-      <div class="static-bg" style="background: #f5f0eb;"></div>
+    <section class="slide" id="slide-musique" data-theme="light" aria-label="Écouter mes créations">
+      <div class="static-bg" style="background: #f5f0eb;" aria-hidden="true"></div>
       <div class="slide-content left">
         <p class="eyebrow dark">Musique</p>
         <div class="slide-texts">
@@ -64,7 +152,7 @@
           </div>
         </div>
         <div class="btn-group">
-          <a href="#" class="btn btn-dark" id="catalogue-toggle">Catalogue</a>
+          <a href="/projets/" class="btn btn-dark" id="catalogue-toggle">Catalogue</a>
         </div>
       </div>
       <div class="slide-visual">
@@ -72,17 +160,17 @@
         <div class="yt-grid yt-grid-main">
           <div class="yt-embed">
             <div class="yt-thumb-wrap">
-              <img src="https://img.youtube.com/vi/ICbvqYJVDno/hqdefault.jpg" alt="Ekkomusic création 1" loading="lazy">
-              <button class="yt-play-btn" data-yt-id="ICbvqYJVDno" aria-label="Lire">
-                <div class="cat-play-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <img src="https://img.youtube.com/vi/ICbvqYJVDno/hqdefault.jpg" alt="Ekko Music — composition originale" loading="lazy" width="480" height="360">
+              <button class="yt-play-btn" data-yt-id="ICbvqYJVDno" aria-label="Lire la vidéo">
+                <div class="cat-play-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
               </button>
             </div>
           </div>
           <div class="yt-embed">
             <div class="yt-thumb-wrap">
-              <img src="https://img.youtube.com/vi/Oa51i4xSz9c/hqdefault.jpg" alt="Ekkomusic création 2" loading="lazy">
-              <button class="yt-play-btn" data-yt-id="Oa51i4xSz9c" aria-label="Lire">
-                <div class="cat-play-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <img src="https://img.youtube.com/vi/Oa51i4xSz9c/hqdefault.jpg" alt="Ekko Music — composition originale" loading="lazy" width="480" height="360">
+              <button class="yt-play-btn" data-yt-id="Oa51i4xSz9c" aria-label="Lire la vidéo">
+                <div class="cat-play-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
               </button>
             </div>
           </div>
@@ -96,71 +184,71 @@
 
                 <div class="cat-slide" data-format="Trailer" data-title="Blue Rising" data-producteur="Karmine Corp" data-realisation="Emash">
                   <div class="cat-thumb">
-                    <img src="https://img.youtube.com/vi/aIDS2hEejJY/hqdefault.jpg" alt="Blue Rising" loading="lazy">
-                    <button class="cat-play" data-yt-id="aIDS2hEejJY" aria-label="Voir Blue Rising">
-                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    <img src="https://img.youtube.com/vi/aIDS2hEejJY/hqdefault.jpg" alt="Blue Rising — trailer musical Karmine Corp, composé par Ekko Music" loading="lazy" width="480" height="360">
+                    <button class="cat-play" data-yt-id="aIDS2hEejJY" aria-label="Voir Blue Rising (Karmine Corp)">
+                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                     </button>
                   </div>
                 </div>
 
                 <div class="cat-slide" data-format="Trailer" data-title="Décimus Esport" data-producteur="Maxime Tchoroukian" data-realisation="Les 4 Mousquetaires">
                   <div class="cat-thumb">
-                    <img src="https://img.youtube.com/vi/n8si4pOJ6rM/hqdefault.jpg" alt="Décimus Esport" loading="lazy">
+                    <img src="https://img.youtube.com/vi/n8si4pOJ6rM/hqdefault.jpg" alt="Décimus Esport — trailer, composé par Ekko Music" loading="lazy" width="480" height="360">
                     <button class="cat-play" data-yt-id="n8si4pOJ6rM" aria-label="Voir Décimus Esport">
-                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                     </button>
                   </div>
                 </div>
 
                 <div class="cat-slide" data-format="Évènement" data-title="Ascension II" data-producteur="ZeratoR" data-realisation="ZQSD Production">
                   <div class="cat-thumb">
-                    <img src="https://img.youtube.com/vi/XcKfChPPJzw/hqdefault.jpg" alt="Ascension II" loading="lazy">
-                    <button class="cat-play" data-yt-id="XcKfChPPJzw" aria-label="Voir Ascension II">
-                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    <img src="https://img.youtube.com/vi/XcKfChPPJzw/hqdefault.jpg" alt="Ascension II — musique d'événement ZeratoR, composée par Ekko Music" loading="lazy" width="480" height="360">
+                    <button class="cat-play" data-yt-id="XcKfChPPJzw" aria-label="Voir Ascension II (ZeratoR)">
+                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                     </button>
                   </div>
                 </div>
 
                 <div class="cat-slide" data-format="Trailer" data-title="Décimus Clothes" data-producteur="Maxime Tchoroukian" data-realisation="Tropik">
                   <div class="cat-thumb">
-                    <img src="https://img.youtube.com/vi/ujddLG8dFy0/hqdefault.jpg" alt="Décimus Clothes" loading="lazy">
+                    <img src="https://img.youtube.com/vi/ujddLG8dFy0/hqdefault.jpg" alt="Décimus Clothes — trailer, composé par Ekko Music" loading="lazy" width="480" height="360">
                     <button class="cat-play" data-yt-id="ujddLG8dFy0" aria-label="Voir Décimus Clothes">
-                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                     </button>
                   </div>
                 </div>
 
                 <div class="cat-slide" data-format="Évènement" data-title="King Con" data-producteur="Sinj Crew" data-realisation="Sinj Crew">
                   <div class="cat-thumb">
-                    <img src="https://img.youtube.com/vi/x6iGMEVQ_lE/hqdefault.jpg" alt="King Con" loading="lazy">
-                    <button class="cat-play" data-yt-id="x6iGMEVQ_lE" aria-label="Voir King Con">
-                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    <img src="https://img.youtube.com/vi/x6iGMEVQ_lE/hqdefault.jpg" alt="King Con — musique d'événement Sinj Crew, composée par Ekko Music" loading="lazy" width="480" height="360">
+                    <button class="cat-play" data-yt-id="x6iGMEVQ_lE" aria-label="Voir King Con (événement)">
+                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                     </button>
                   </div>
                 </div>
 
                 <div class="cat-slide" data-format="Évènement" data-title="Ascension I" data-producteur="ZeratoR" data-realisation="ZQSD Production">
                   <div class="cat-thumb">
-                    <img src="https://img.youtube.com/vi/2Suu05XolZQ/hqdefault.jpg" alt="Ascension I" loading="lazy">
-                    <button class="cat-play" data-yt-id="2Suu05XolZQ" aria-label="Voir Ascension I">
-                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    <img src="https://img.youtube.com/vi/2Suu05XolZQ/hqdefault.jpg" alt="Ascension I — musique d'événement ZeratoR, composée par Ekko Music" loading="lazy" width="480" height="360">
+                    <button class="cat-play" data-yt-id="2Suu05XolZQ" aria-label="Voir Ascension I (ZeratoR)">
+                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                     </button>
                   </div>
                 </div>
 
                 <div class="cat-slide" data-format="Trailer" data-title="King Con" data-producteur="Sinj Crew" data-realisation="Sinj Crew">
                   <div class="cat-thumb">
-                    <img src="https://img.youtube.com/vi/hg8AyfjLiSM/hqdefault.jpg" alt="King Con" loading="lazy">
-                    <button class="cat-play" data-yt-id="hg8AyfjLiSM" aria-label="Voir King Con">
-                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    <img src="https://img.youtube.com/vi/hg8AyfjLiSM/hqdefault.jpg" alt="King Con — trailer Sinj Crew, composé par Ekko Music" loading="lazy" width="480" height="360">
+                    <button class="cat-play" data-yt-id="hg8AyfjLiSM" aria-label="Voir King Con (trailer)">
+                      <div class="cat-play-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
                     </button>
                   </div>
                 </div>
 
               </div>
 
-              <!-- Scrubber vertical gauche -->
-              <div class="cat-scrubber" id="cat-scrubber">
+              <!-- Scrubber vertical -->
+              <div class="cat-scrubber" id="cat-scrubber" aria-hidden="true">
                 <div class="cat-scrubber-track">
                   <div class="cat-scrubber-thumb" id="cat-scrubber-thumb">
                     <svg class="cat-scrubber-chevron cat-scrubber-chevron--up" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="18 15 12 9 6 15"/></svg>
@@ -171,13 +259,13 @@
 
             </div>
 
-            <!-- Flèches sous la stage -->
+            <!-- Flèches -->
             <div class="cat-controls">
-              <button class="cat-arrow cat-prev" id="cat-prev" aria-label="Précédent">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+              <button class="cat-arrow cat-prev" id="cat-prev" aria-label="Projet précédent">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
               </button>
-              <button class="cat-arrow cat-next" id="cat-next" aria-label="Suivant">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              <button class="cat-arrow cat-next" id="cat-next" aria-label="Projet suivant">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
             </div>
 
@@ -205,69 +293,83 @@
     </section>
 
     <!-- Slide 3 : Contact -->
-    <section class="slide" data-theme="dark">
-      <div class="static-bg dark-bg"></div>
+    <section class="slide" data-theme="dark" aria-label="Contact et informations">
+      <div class="static-bg dark-bg" aria-hidden="true"></div>
       <div class="slide-content center">
-        <p class="eyebrow">Musique & Sound Design</p>
-        <h2>Rejoignez<br>l'univers Ekkomusic</h2>
-        <div class="contact-links">
+        <p class="eyebrow">Musique &amp; Sound Design</p>
+        <h2>Rejoignez<br>l'univers Ekko Music</h2>
+        <p class="subtitle" style="margin-bottom:1.5rem;">Compositeur à l'image disponible pour vos projets : trailers, événements gaming, esport et productions audiovisuelles.</p>
+        <nav class="contact-links" aria-label="Liens de contact">
           <a href="mailto:ekkomusicoff@gmail.com" class="contact-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
             ekkomusicoff@gmail.com
           </a>
           <a href="https://x.com/Ekko_Twitch" target="_blank" rel="noopener noreferrer" class="contact-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             @Ekko_Twitch
           </a>
-        </div>
+        </nav>
         <div class="trust-section">
           <p class="trust-label">Ils m'ont fait confiance</p>
           <div class="trust-logos">
-            <img src="images/Galionsekko.png"       alt="Galions"      class="trust-logo">
-            <img src="images/Karminecorpekko.avif"  alt="Karmine Corp" class="trust-logo">
-            <img src="images/ZeratoRekko.png"        alt="ZeratoR"      class="trust-logo">
-            <img src="images/zqsdekko.webp"          alt="ZQSD"         class="trust-logo">
+            <img src="/images/Galionsekko.png"       alt="Les Galions"   class="trust-logo" width="80" height="40" loading="lazy">
+            <img src="/images/Karminecorpekko.avif"  alt="Karmine Corp"  class="trust-logo" width="80" height="40" loading="lazy">
+            <img src="/images/ZeratoRekko.png"       alt="ZeratoR"       class="trust-logo" width="80" height="40" loading="lazy">
+            <img src="/images/zqsdekko.webp"         alt="ZQSD"          class="trust-logo" width="80" height="40" loading="lazy">
           </div>
         </div>
+
+        <!-- Liens crawlables vers les pages services -->
+        <nav class="services-nav" aria-label="Services">
+          <a href="/compositeur-musique-a-l-image/">Composition à l'image</a>
+          <a href="/musique-trailer/">Musique de trailer</a>
+          <a href="/musique-gaming-esport/">Gaming &amp; Esport</a>
+          <a href="/sound-design/">Sound Design</a>
+          <a href="/projets/">Tous les projets</a>
+        </nav>
       </div>
     </section>
 
   </main>
 
   <!-- Pagination dots -->
-  <div id="pagination">
-    <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
-    <button class="dot" data-slide="1" aria-label="Slide 2"></button>
-    <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+  <div id="pagination" role="tablist" aria-label="Navigation par slide">
+    <button class="dot active" data-slide="0" aria-label="Slide Accueil" role="tab" aria-selected="true"></button>
+    <button class="dot" data-slide="1" aria-label="Slide Écouter" role="tab" aria-selected="false"></button>
+    <button class="dot" data-slide="2" aria-label="Slide Contact" role="tab" aria-selected="false"></button>
   </div>
 
   <!-- Arrow navigation -->
-  <button class="arrow arrow-up" id="arrow-up" aria-label="Précédent">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  <button class="arrow arrow-up" id="arrow-up" aria-label="Slide précédente">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
-  <button class="arrow arrow-down" id="arrow-down" aria-label="Suivant">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+  <button class="arrow arrow-down" id="arrow-down" aria-label="Slide suivante">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
   </button>
 
   <!-- Footer -->
   <footer id="footer">
-    <span>© 2026 Ekkomusic. Tous droits réservés.</span>
-
+    <span>© 2026 Ekko Music. Tous droits réservés.</span>
+    <nav aria-label="Liens footer">
+      <a href="/a-propos/">À propos</a>
+      <a href="/contact/">Contact</a>
+      <a href="/projets/">Projets</a>
+    </nav>
   </footer>
 
   <!-- Lightbox vidéo -->
-  <div id="yt-lightbox" class="yt-lightbox" hidden>
+  <div id="yt-lightbox" class="yt-lightbox" hidden role="dialog" aria-modal="true" aria-label="Lecteur vidéo">
     <div class="yt-lb-overlay" id="yt-lb-overlay"></div>
     <div class="yt-lb-content">
-      <button class="yt-lb-close" id="yt-lb-close" aria-label="Fermer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button class="yt-lb-close" id="yt-lb-close" aria-label="Fermer la vidéo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
-      <iframe id="yt-lb-iframe" src="" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <iframe id="yt-lb-iframe" src="" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Vidéo Ekko Music"></iframe>
     </div>
   </div>
 
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
