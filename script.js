@@ -41,7 +41,8 @@ const slides = Array.from(document.querySelectorAll('.slide'));
 const dots = Array.from(document.querySelectorAll('.dot'));
 const arrowUp = document.getElementById('arrow-up');
 const arrowDown = document.getElementById('arrow-down');
-const logoEl = document.getElementById('logo');
+const logoEl  = document.getElementById('logo');
+const navbarEl = document.getElementById('navbar');
 let current = 0;
 let isAnimating = false;
 
@@ -73,6 +74,8 @@ function goTo(index) {
 
   // Logo invert : fond clair (slide 1) → logo noir, fond sombre → logo blanc
   logoEl.classList.toggle('invert', current === 1);
+  // Nav dark : texte sombre sur la slide à fond clair
+  navbarEl.classList.toggle('nav-dark', current === 1);
 
   // Arrow visibility
   arrowUp.classList.toggle('hidden', current === 0);

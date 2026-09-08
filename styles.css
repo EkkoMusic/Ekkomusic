@@ -75,6 +75,21 @@ html, body {
   opacity: 1;
 }
 
+/* Navbar sombre sur fond clair (slide 1) */
+#navbar.nav-dark .nav-links {
+  mix-blend-mode: normal;
+}
+#navbar.nav-dark .nav-links a {
+  color: #111;
+  opacity: 0.75;
+}
+#navbar.nav-dark .nav-links a:hover {
+  opacity: 1;
+}
+#navbar.nav-dark .menu-toggle span {
+  background: #111;
+}
+
 .menu-toggle {
   display: none;
   flex-direction: column;
