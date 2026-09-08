@@ -236,10 +236,10 @@ html, body {
   position: absolute;
   left: 8vw;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-52%);
   text-align: left;
   padding: 0;
-  max-width: 700px;
+  max-width: min(84vw, 980px);
 }
 
 .hero-pixel-title {
@@ -319,6 +319,33 @@ h2.dark {
   color: rgba(255,255,255,0.65);
   line-height: 1.7;
   margin-bottom: 2.5rem;
+}
+
+/* Tagline hero — une seule ligne, sobre */
+.hero-tagline {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-bottom: 2.5rem;
+  margin-top: 0;
+}
+
+/* Bouton fantôme — secondaire discret */
+.btn.btn-ghost {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.7rem 0.25rem;
+  text-decoration: none;
+  transition: color 0.25s;
+  align-self: center;
+}
+.btn.btn-ghost:hover {
+  color: rgba(255,255,255,0.82);
 }
 
 .subtitle.dark {
@@ -1153,6 +1180,26 @@ h2.dark {
     font-size: clamp(2rem, 10vw, 3rem);
   }
 
+  /* H1 hero : autorise le retour à la ligne sur mobile */
+  .hero-seo-title {
+    white-space: normal;
+    font-size: clamp(0.9rem, 3.8vw, 1.25rem);
+  }
+
+  /* Tagline hero plus petite sur mobile */
+  .hero-tagline {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+  }
+
+  /* Boutons hero en colonne sur mobile */
+  .hero-btn-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
   #contact-form {
     flex-direction: column;
     border: none;
@@ -1407,18 +1454,19 @@ h2.dark {
 
 /* ===== H1 sémantique hero ===== */
 .hero-seo-title {
-  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: clamp(0.9rem, 1.55vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
   line-height: 1.35;
-  color: rgba(255,255,255,0.82);
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.68);
+  margin-top: 0.75rem;
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
 }
 
 .hero-seo-accent {
-  color: rgba(255,255,255,0.58);
-  font-weight: 500;
+  color: rgba(255,255,255,0.48);
+  font-weight: 400;
 }
 
 /* Texte SEO crawlable discret sous le hero */
