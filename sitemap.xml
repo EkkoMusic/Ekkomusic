@@ -99,4 +99,18 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://ekko-music.fr/projets/tcg-decimus/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ekko-music.fr/projets/galion-2026/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
