@@ -2533,6 +2533,17 @@ body.inner-page.light-page .menu-toggle span {
   margin-top: 0.5rem;
 }
 
+.form-error {
+  display: none;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255,80,80,0.3);
+  background: rgba(255,80,80,0.05);
+  color: rgba(255,180,180,0.9);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 600px) {
   .contact-form-full {
     max-width: 100%;

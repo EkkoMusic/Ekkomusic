@@ -127,6 +127,8 @@
           <span class="form-field-error" id="err-message" role="alert">Veuillez indiquer un message.</span>
         </div>
 
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
         <div class="form-submit-row">
           <button type="submit" class="btn btn-primary" id="form-submit-btn">Parler de votre projet</button>
           <p class="form-note">Les champs marqués <span aria-hidden="true">*</span> sont obligatoires.</p>
@@ -134,6 +136,10 @@
 
         <div class="form-success" id="form-success" tabindex="-1" aria-live="polite">
           Merci pour votre message. Je vous recontacterai dans les plus brefs délais.
+        </div>
+
+        <div class="form-error" id="form-error" tabindex="-1" aria-live="assertive">
+          Une erreur s'est produite lors de l'envoi. Veuillez réessayer ou me contacter directement à <a href="mailto:ekkomusicoff@gmail.com" class="body-link">ekkomusicoff@gmail.com</a>.
         </div>
 
       </form>
@@ -242,23 +248,42 @@
           return;
         }
 
-        // TODO: Remplacer ce bloc par l'appel au service d'envoi choisi (Formspree, FormSubmit, etc.)
-        var btn = document.getElementById('form-submit-btn');
+        var btn      = document.getElementById('form-submit-btn');
+        var successEl = document.getElementById('form-success');
+        var errorEl   = document.getElementById('form-error');
+
         btn.disabled = true;
         btn.textContent = 'Envoi en cours…';
-        setTimeout(function () {
-          form.reset();
-          if (budgetSel) syncEmpty(budgetSel);
-          fields.forEach(function (f) {
-            var w = document.getElementById(f.id);
-            if (w) w.classList.remove('has-error');
-          });
+        successEl.style.display = 'none';
+        errorEl.style.display   = 'none';
+
+        fetch('https://formspree.io/f/mjygwrvq', {
+          method:  'POST',
+          body:    new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function (response) {
+          if (response.ok) {
+            form.reset();
+            if (budgetSel) syncEmpty(budgetSel);
+            fields.forEach(function (f) {
+              var w = document.getElementById(f.id);
+              if (w) w.classList.remove('has-error');
+            });
+            btn.disabled = false;
+            btn.textContent = 'Parler de votre projet';
+            successEl.style.display = 'block';
+            successEl.focus();
+          } else {
+            throw new Error('response-' + response.status);
+          }
+        })
+        .catch(function () {
           btn.disabled = false;
           btn.textContent = 'Parler de votre projet';
-          var success = document.getElementById('form-success');
-          success.style.display = 'block';
-          success.focus();
-        }, 600);
+          errorEl.style.display = 'block';
+          errorEl.focus();
+        });
       });
     })();
   </script>
