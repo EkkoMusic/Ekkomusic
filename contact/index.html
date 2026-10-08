@@ -76,6 +76,69 @@
       <p class="lead">Compositeur de musique à l'image disponible pour vos projets : trailers gaming et esport, événements, productions audiovisuelles. Toutes les compositions sont réalisées en studio, sans IA.</p>
     </div>
 
+    <!-- Formulaire de contact -->
+    <section class="page-section" aria-labelledby="form-heading" id="projet">
+      <h2 id="form-heading">Parler de votre projet</h2>
+      <form class="contact-form-full" id="contact-projet" novalidate>
+
+        <div class="form-field" id="field-nom">
+          <label class="form-label" for="inp-nom">Nom <span aria-hidden="true">*</span></label>
+          <input type="text" id="inp-nom" name="nom" required autocomplete="name" placeholder="Votre nom">
+          <span class="form-field-error" id="err-nom" role="alert">Veuillez indiquer votre nom.</span>
+        </div>
+
+        <div class="form-field" id="field-email">
+          <label class="form-label" for="inp-email">Adresse e-mail <span aria-hidden="true">*</span></label>
+          <input type="email" id="inp-email" name="email" required autocomplete="email" placeholder="votre@email.com">
+          <span class="form-field-error" id="err-email" role="alert">Veuillez indiquer une adresse e-mail valide.</span>
+        </div>
+
+        <div class="form-field" id="field-type">
+          <label class="form-label" for="inp-type">Type de projet <span aria-hidden="true">*</span></label>
+          <select id="inp-type" name="type" required aria-describedby="err-type">
+            <option value="" disabled selected>Sélectionner…</option>
+            <option value="musique-image">Musique à l'image</option>
+            <option value="trailer">Trailer</option>
+            <option value="gaming-esport">Gaming / Esport</option>
+            <option value="sound-design">Sound design</option>
+            <option value="evenement">Événement</option>
+            <option value="mixage-mastering">Mixage / Mastering</option>
+            <option value="autre">Autre</option>
+          </select>
+          <span class="form-field-error" id="err-type" role="alert">Veuillez sélectionner un type de projet.</span>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="inp-budget">Budget indicatif <span class="form-label-opt">— facultatif</span></label>
+          <select id="inp-budget" name="budget">
+            <option value="" selected></option>
+            <option value="moins-500">Moins de 500 €</option>
+            <option value="500-1000">500 € à 1 000 €</option>
+            <option value="1000-2500">1 000 € à 2 500 €</option>
+            <option value="2500-5000">2 500 € à 5 000 €</option>
+            <option value="plus-5000">Plus de 5 000 €</option>
+            <option value="nsp">Je ne sais pas encore</option>
+          </select>
+        </div>
+
+        <div class="form-field" id="field-message">
+          <label class="form-label" for="inp-message">Message <span aria-hidden="true">*</span></label>
+          <textarea id="inp-message" name="message" required rows="5" placeholder="Décrivez votre projet en quelques lignes…"></textarea>
+          <span class="form-field-error" id="err-message" role="alert">Veuillez indiquer un message.</span>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary" id="form-submit-btn">Parler de votre projet</button>
+          <p class="form-note">Les champs marqués <span aria-hidden="true">*</span> sont obligatoires.</p>
+        </div>
+
+        <div class="form-success" id="form-success" tabindex="-1" aria-live="polite">
+          Merci pour votre message. Je vous recontacterai dans les plus brefs délais.
+        </div>
+
+      </form>
+    </section>
+
     <section class="page-section" aria-labelledby="contact-heading">
       <h2 id="contact-heading">Coordonnées</h2>
 
@@ -124,5 +187,80 @@
   </footer>
 
   <script src="/nav.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('contact-projet');
+      if (!form) return;
+
+      var fields = [
+        { id: 'field-nom',     inputId: 'inp-nom' },
+        { id: 'field-email',   inputId: 'inp-email' },
+        { id: 'field-type',    inputId: 'inp-type' },
+        { id: 'field-message', inputId: 'inp-message' }
+      ];
+
+      // Budget select : placeholder styling
+      var budgetSel = document.getElementById('inp-budget');
+      function syncEmpty(sel) {
+        sel.classList.toggle('select-empty', sel.value === '');
+      }
+      if (budgetSel) {
+        syncEmpty(budgetSel);
+        budgetSel.addEventListener('change', function () { syncEmpty(budgetSel); });
+      }
+
+      function validate(fieldId, inputId) {
+        var wrapper = document.getElementById(fieldId);
+        var input   = document.getElementById(inputId);
+        if (!wrapper || !input) return true;
+        var ok = input.checkValidity();
+        wrapper.classList.toggle('has-error', !ok);
+        input.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        return ok;
+      }
+
+      fields.forEach(function (f) {
+        var el = document.getElementById(f.inputId);
+        if (!el) return;
+        el.addEventListener('blur', function () { validate(f.id, f.inputId); });
+        el.addEventListener('input', function () {
+          if (document.getElementById(f.id).classList.contains('has-error')) {
+            validate(f.id, f.inputId);
+          }
+        });
+        if (el.tagName === 'SELECT') {
+          el.addEventListener('change', function () { validate(f.id, f.inputId); });
+        }
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var allOk = fields.every(function (f) { return validate(f.id, f.inputId); });
+        if (!allOk) {
+          var first = form.querySelector('.has-error input, .has-error select, .has-error textarea');
+          if (first) first.focus();
+          return;
+        }
+
+        // TODO: Remplacer ce bloc par l'appel au service d'envoi choisi (Formspree, FormSubmit, etc.)
+        var btn = document.getElementById('form-submit-btn');
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours…';
+        setTimeout(function () {
+          form.reset();
+          if (budgetSel) syncEmpty(budgetSel);
+          fields.forEach(function (f) {
+            var w = document.getElementById(f.id);
+            if (w) w.classList.remove('has-error');
+          });
+          btn.disabled = false;
+          btn.textContent = 'Parler de votre projet';
+          var success = document.getElementById('form-success');
+          success.style.display = 'block';
+          success.focus();
+        }, 600);
+      });
+    })();
+  </script>
 </body>
 </html>
