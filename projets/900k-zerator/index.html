@@ -7,34 +7,30 @@
   <meta name="description" content="900K est un album de 13 titres sorti en 2023, né d'un donation goal du Z Event. Production musicale complète par Ekko Music : composition, arrangements, enregistrement, mixage et mastering.">
   <link rel="canonical" href="https://ekko-music.fr/projets/900k-zerator/">
   <meta name="robots" content="index, follow">
-  <meta property="og:type" content="music.album">
+  <meta property="og:type" content="video.other">
   <meta property="og:url" content="https://ekko-music.fr/projets/900k-zerator/">
   <meta property="og:title" content="900K, l'album de ZeratoR | Ekko Music">
   <meta property="og:description" content="Production musicale de l'album 900K de ZeratoR : composition, arrangements, enregistrement, mixage et mastering par Ekko Music.">
-  <meta property="og:image" content="https://ekko-music.fr/images/ZeratoRekko.png">
+  <meta property="og:image" content="https://ekko-music.fr/images/900k-zerator.jpg">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Ekko Music">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@Ekko_Twitch">
   <meta name="twitter:title" content="900K, l'album de ZeratoR | Ekko Music">
   <meta name="twitter:description" content="Production musicale de l'album 900K de ZeratoR par Ekko Music.">
-  <meta name="twitter:image" content="https://ekko-music.fr/images/ZeratoRekko.png">
+  <meta name="twitter:image" content="https://ekko-music.fr/images/900k-zerator.jpg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "MusicAlbum",
-        "name": "900K",
-        "byArtist": {
-          "@type": "Person",
-          "name": "ZeratoR"
-        },
-        "datePublished": "2023-07-13",
-        "numTracks": 13,
+        "@type": "VideoObject",
+        "name": "900K — l'album de ZeratoR",
         "description": "Album de 13 titres né d'un donation goal du Z Event. Production musicale par Ekko Music : composition, arrangements, enregistrement, mixage et mastering.",
-        "producer": { "@id": "https://ekko-music.fr/#organization" },
-        "url": "https://ekko-music.fr/projets/900k-zerator/"
+        "thumbnailUrl": "https://img.youtube.com/vi/IwgaR3vPAb0/maxresdefault.jpg",
+        "embedUrl": "https://www.youtube.com/embed/IwgaR3vPAb0",
+        "url": "https://www.youtube.com/watch?v=IwgaR3vPAb0",
+        "creator": { "@id": "https://ekko-music.fr/#organization" }
       },
       {
         "@type": "BreadcrumbList",
@@ -86,7 +82,19 @@
       <p class="lead"><strong>ZeratoR</strong> · Composition, production, arrangements, enregistrement, mixage et mastering</p>
     </div>
 
-    <section class="page-section" aria-label="Présentation du projet">
+    <section class="page-section" aria-label="Vidéo du projet">
+
+      <div class="project-video-wrap" id="video-wrap">
+        <img src="https://img.youtube.com/vi/IwgaR3vPAb0/maxresdefault.jpg"
+             alt="900K — album de ZeratoR, Ekko Music"
+             width="1280" height="720"
+             fetchpriority="high">
+        <button class="project-video-play" id="play-btn" aria-label="Lire 900K — ZeratoR">
+          <div class="project-play-circle">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </div>
+        </button>
+      </div>
 
       <ul class="project-meta-list">
         <li><span class="meta-label">Projet</span><span class="meta-value">900K 2023</span></li>
@@ -138,5 +146,22 @@
   </footer>
 
   <script src="/nav.js"></script>
+  <script>
+    (function () {
+      var wrap = document.getElementById('video-wrap');
+      var btn  = document.getElementById('play-btn');
+      if (!btn || !wrap) return;
+      btn.addEventListener('click', function () {
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/IwgaR3vPAb0?autoplay=1&rel=0&playsinline=1';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.title = '900K — ZeratoR';
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+        wrap.innerHTML = '';
+        wrap.appendChild(iframe);
+      });
+    })();
+  </script>
 </body>
 </html>
