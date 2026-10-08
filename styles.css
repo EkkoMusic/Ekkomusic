@@ -2269,6 +2269,27 @@ body.inner-page.light-page .menu-toggle span {
   padding-bottom: 0.2rem;
 }
 
+.service-list-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.service-list-link:hover {
+  color: rgba(255,255,255,0.8);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.service-list-link:focus-visible {
+  color: rgba(255,255,255,0.8);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  outline: 2px solid rgba(255,255,255,0.4);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* Processus horizontal minimal */
 .process-flow {
   display: flex;
