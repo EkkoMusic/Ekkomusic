@@ -4,8 +4,8 @@
   <script>!function(){var l=localStorage.getItem('ekko_lang'),p=location.pathname.replace(/^\/en/,'')||'/';if(l==='fr'||(!l&&navigator.language.startsWith('fr'))){location.replace(p);}}();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Ekko Music | Composer for image &amp; Sound Designer</title>
-  <meta name="description" content="Contact Ekko Music for your composition projects: gaming trailers, esport events, music for image. Email: ekkomusicoff@gmail.com — X/Twitter: @Ekko_Twitch">
+  <title>Contact — Ekko Music | Film Music Composer</title>
+  <meta name="description" content="Contact Ekko Music for your musical composition projects: gaming trailers, esport events, film music. Email: ekkomusicoff@gmail.com — X/Twitter: @Ekko_Twitch">
   <link rel="canonical" href="https://ekko-music.fr/en/contact/">
   <link rel="alternate" hreflang="fr" href="https://ekko-music.fr/contact/">
   <link rel="alternate" hreflang="en" href="https://ekko-music.fr/en/contact/">
@@ -14,9 +14,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ekko-music.fr/en/contact/">
   <meta property="og:title" content="Contact — Ekko Music">
-  <meta property="og:description" content="Contact Ekko Music for your projects: gaming trailers, esport events, music for image.">
+  <meta property="og:description" content="Contact Ekko Music for your projects: gaming trailers, esport events, film music.">
   <meta property="og:image" content="https://ekko-music.fr/images/EkkoSqr2_White.jpg">
-  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Ekko Music">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Ekko_Twitch">
@@ -28,12 +28,10 @@
     "@type": "ContactPage",
     "url": "https://ekko-music.fr/en/contact/",
     "name": "Contact — Ekko Music",
-    "description": "Contact page for Ekko Music, composer for image and sound designer.",
-    "inLanguage": "en",
+    "description": "Contact page for Ekko Music, film music composer and sound designer.",
+    "inLanguage": "en-US",
     "isPartOf": { "@id": "https://ekko-music.fr/#website" },
-    "mainEntity": {
-      "@id": "https://ekko-music.fr/#organization"
-    },
+    "mainEntity": { "@id": "https://ekko-music.fr/#organization" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -82,12 +80,12 @@
     <div class="page-hero">
       <p class="eyebrow">Music &amp; Sound Design</p>
       <h1>Work with Ekko Music</h1>
-      <p class="lead">Composer for image available for your projects: gaming and esport trailers, events, audiovisual productions. All compositions are created in studio, without AI.</p>
+      <p class="lead">Film music composer available for your projects: gaming and esport trailers, events, audiovisual productions. All compositions are made in studio, without AI.</p>
     </div>
 
     <!-- Contact form -->
     <section class="page-section" aria-labelledby="form-heading" id="projet">
-      <h2 id="form-heading">Discuss your project</h2>
+      <h2 id="form-heading">Talk about your project</h2>
       <form class="contact-form-full" id="contact-projet" novalidate>
 
         <div class="form-field" id="field-nom">
@@ -106,7 +104,7 @@
           <label class="form-label" for="inp-type">Project type <span aria-hidden="true">*</span></label>
           <select id="inp-type" name="type" required aria-describedby="err-type">
             <option value="" disabled selected>Select…</option>
-            <option value="musique-image">Music for image</option>
+            <option value="musique-image">Film music</option>
             <option value="trailer">Trailer</option>
             <option value="gaming-esport">Gaming / Esport</option>
             <option value="sound-design">Sound design</option>
@@ -139,7 +137,7 @@
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="form-submit-row">
-          <button type="submit" class="btn btn-primary" id="form-submit-btn">Discuss your project</button>
+          <button type="submit" class="btn btn-primary" id="form-submit-btn">Talk about your project</button>
           <p class="form-note">Fields marked <span aria-hidden="true">*</span> are required.</p>
         </div>
 
@@ -175,7 +173,7 @@
       <ul style="list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.5rem;">
         <li style="font-size:0.95rem;color:rgba(255,255,255,0.6);">— <a href="/en/musique-trailer/" style="color:rgba(255,255,255,0.7);text-decoration:underline;text-underline-offset:3px;">Gaming and esport trailers</a></li>
         <li style="font-size:0.95rem;color:rgba(255,255,255,0.6);">— <a href="/en/musique-gaming-esport/" style="color:rgba(255,255,255,0.7);text-decoration:underline;text-underline-offset:3px;">Live gaming event music</a></li>
-        <li style="font-size:0.95rem;color:rgba(255,255,255,0.6);">— <a href="/en/compositeur-musique-a-l-image/" style="color:rgba(255,255,255,0.7);text-decoration:underline;text-underline-offset:3px;">Music for image (film, web, advertising)</a></li>
+        <li style="font-size:0.95rem;color:rgba(255,255,255,0.6);">— <a href="/en/compositeur-musique-a-l-image/" style="color:rgba(255,255,255,0.7);text-decoration:underline;text-underline-offset:3px;">Film music composition (film, web, advertising)</a></li>
         <li style="font-size:0.95rem;color:rgba(255,255,255,0.6);">— <a href="/en/sound-design/" style="color:rgba(255,255,255,0.7);text-decoration:underline;text-underline-offset:3px;">Sound design</a></li>
       </ul>
     </section>
@@ -279,7 +277,7 @@
               if (w) w.classList.remove('has-error');
             });
             btn.disabled = false;
-            btn.textContent = 'Discuss your project';
+            btn.textContent = 'Talk about your project';
             successEl.style.display = 'block';
             successEl.focus();
           } else {
@@ -288,7 +286,7 @@
         })
         .catch(function () {
           btn.disabled = false;
-          btn.textContent = 'Discuss your project';
+          btn.textContent = 'Talk about your project';
           errorEl.style.display = 'block';
           errorEl.focus();
         });
