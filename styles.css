@@ -383,6 +383,8 @@ h2.dark {
   color: rgba(0,0,0,0.55);
 }
 
+.text-green { color: #4ade80; }
+
 /* ===== Buttons ===== */
 .btn-group {
   display: flex;
