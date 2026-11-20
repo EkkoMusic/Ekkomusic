@@ -1220,6 +1220,10 @@ h2.dark {
   opacity: 1;
 }
 
+.trust-logo-link {
+  display: contents;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .nav-links { display: none; }
