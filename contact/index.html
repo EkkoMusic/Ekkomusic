@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>!function(){var l=localStorage.getItem('ekko_lang');if(l==='en'||(!l&&!navigator.language.startsWith('fr'))){location.replace('/en'+location.pathname);}}();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Ekko Music | Compositeur musique à l'image</title>
   <meta name="description" content="Contactez Ekko Music pour vos projets de composition musicale : trailers gaming, événements esport, musique à l'image. Email : ekkomusicoff@gmail.com — X/Twitter : @Ekko_Twitch">
   <link rel="canonical" href="https://ekko-music.fr/contact/">
+  <link rel="alternate" hreflang="fr" href="https://ekko-music.fr/contact/">
+  <link rel="alternate" hreflang="en" href="https://ekko-music.fr/en/contact/">
+  <link rel="alternate" hreflang="x-default" href="https://ekko-music.fr/contact/">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ekko-music.fr/contact/">
@@ -59,6 +63,11 @@
       <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+      <div class="lang-switch" aria-label="Language">
+        <span class="lang-btn lang-active" aria-current="true">FR</span>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a href="#" class="lang-btn" id="lang-en">EN</a>
+      </div>
     </nav>
   </header>
 
@@ -287,5 +296,6 @@
       });
     })();
   </script>
+  <script src="/lang.js"></script>
 </body>
 </html>

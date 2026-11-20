@@ -128,6 +128,37 @@ html, body {
   letter-spacing: 0.2em;
 }
 
+/* ===== Language Toggle ===== */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+.lang-btn {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0.1rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+.lang-btn:hover { color: rgba(255,255,255,0.9); }
+.lang-active { color: rgba(255,255,255,0.85); cursor: default; }
+.lang-sep { color: rgba(255,255,255,0.2); }
+#navbar.nav-dark .lang-btn       { color: rgba(0,0,0,0.4); }
+#navbar.nav-dark .lang-btn:hover { color: rgba(0,0,0,0.9); }
+#navbar.nav-dark .lang-active    { color: rgba(0,0,0,0.75); }
+#navbar.nav-dark .lang-sep       { color: rgba(0,0,0,0.2); }
+
 /* ===== Slider ===== */
 #slider {
   position: fixed;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>!function(){var l=localStorage.getItem('ekko_lang');if(l==='en'||(!l&&!navigator.language.startsWith('fr'))){location.replace('/en'+location.pathname);}}();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -8,6 +9,9 @@
   <title>Compositeur musique à l'image &amp; Sound Designer | Ekko Music</title>
   <meta name="description" content="Ekko Music compose des musiques originales pour trailers, gaming, esport et événements. Compositeur à l'image et sound designer, travaillant avec Karmine Corp, ZeratoR et les plus grandes productions françaises.">
   <link rel="canonical" href="https://ekko-music.fr/">
+  <link rel="alternate" hreflang="fr" href="https://ekko-music.fr/">
+  <link rel="alternate" hreflang="en" href="https://ekko-music.fr/en/">
+  <link rel="alternate" hreflang="x-default" href="https://ekko-music.fr/">
   <meta name="robots" content="index, follow">
 
   <!-- ===== Open Graph ===== -->
@@ -97,6 +101,11 @@
       <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+      <div class="lang-switch" aria-label="Language">
+        <span class="lang-btn lang-active" aria-current="true">FR</span>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a href="#" class="lang-btn" id="lang-en">EN</a>
+      </div>
     </nav>
   </header>
 
@@ -386,5 +395,6 @@
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="/script.js"></script>
+  <script src="/lang.js"></script>
 </body>
 </html>
