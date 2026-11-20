@@ -190,7 +190,7 @@ arrowUp.classList.add('hidden');
     setTimeout(function () {
       isCatalogue = !isCatalogue;
       slide.classList.toggle('catalogue-mode', isCatalogue);
-      btn.textContent = isCatalogue ? 'Mes dernières créations' : 'Catalogue';
+      btn.textContent = isCatalogue ? (location.pathname.startsWith('/en') ? 'My latest work' : 'Mes dernières créations') : 'Catalogue';
     }, 200);
 
     // Fin du glitch → nettoyage
